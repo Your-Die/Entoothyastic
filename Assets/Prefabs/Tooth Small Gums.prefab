@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: 
   _matchedTextColor: {r: 1, g: 0, b: 0, a: 1}
-  _disableOnSuccess: 0
+  _disableOnSuccess: 1
   _textField: {fileID: 7750683939413578054}
   Matched:
     m_PersistentCalls:
