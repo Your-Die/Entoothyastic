@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-public class Tooth : MonoBehaviour
+public class ToothText : MonoBehaviour
 {
     [SerializeField] private string _text;
     [SerializeField] private Color _matchedTextColor = Color.red;
@@ -14,7 +13,10 @@ public class Tooth : MonoBehaviour
 
     [SerializeField] private bool _disableOnSuccess = true;
 
+    [SerializeField] private ToothInfo _toothInfo;
     [SerializeField] private TMP_Text _textField;
+
+    private InputHandler _inputHandler;
 
     private int _characterIndex;
 
@@ -25,7 +27,7 @@ public class Tooth : MonoBehaviour
         get => _text;
         set
         {
-            _text = value; 
+            _text = value;
             Reset();
         }
     }
@@ -41,14 +43,16 @@ public class Tooth : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_textField == null)
+            _textField = GetComponentInChildren<TMP_Text>();
+        if (_toothInfo == null)
+            _toothInfo = GetComponent<ToothInfo>();
+
         TextActive = true;
         Reset();
     }
 
-    private void OnDisable()
-    {
-        TextActive = false;
-    }
+    private void OnDisable() => TextActive = false;
 
     private void Reset()
     {
@@ -58,11 +62,8 @@ public class Tooth : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.anyKeyDown || string.IsNullOrEmpty(Input.inputString))
-            return;
-
-        char input = Input.inputString.First();
-        MatchCharacter(input);
+        if (InputHandler.Instance.TryGetKey(out var input))
+            MatchCharacter(input.Value);
     }
 
     private void UpdateText()
@@ -91,19 +92,24 @@ public class Tooth : MonoBehaviour
         this.enabled = string.IsNullOrEmpty(this.Text) == false;
     }
 
-    private void ResetRepetitions()
-    {
-        _repetitions = 0;
-    }
+    private void ResetRepetitions() => _repetitions = 0;
 
     private void OnCharacterMatched()
     {
+        _toothInfo.OnSuccessfullyBrushed_1x.AddListener(OnBrushComplete);
+        InputHandler.Instance.AddInhibitor(this);
+
         _characterIndex++;
 
         UpdateText();
 
         if (_characterIndex >= Text.Length)
             OnMatched();
+    }
+
+    private void OnBrushComplete(ToothInfo info)
+    {
+        InputHandler.Instance.RemoveInhibitor(this);
     }
 
     private void OnMatched()
@@ -126,5 +132,5 @@ public class Tooth : MonoBehaviour
     }
 
     [Serializable]
-    public class Event : UnityEvent<Tooth> { }
+    public class Event : UnityEvent<ToothText> { }
 }
