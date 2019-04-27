@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cddd91181a986d4881874147eca8575, type: 3}
-  m_Name: Chameleon
+  m_Name: TestMouth3
   m_EditorClassIdentifier: 
   _teethTexts:
-  - a
-  - b
-  - c
-  - d
-  - e
-  - f
-  - g
-  - h
+  - p
   - i
-  - j
+  - n
+  - e
+  - a
+  - p
+  - p
+  - l
+  - e
