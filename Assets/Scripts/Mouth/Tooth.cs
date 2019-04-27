@@ -10,24 +10,49 @@ public class Tooth : MonoBehaviour
     [SerializeField] private string _text;
     [SerializeField] private Color _matchedTextColor = Color.red;
 
-    [SerializeField] private bool _disableOnSuccess;
+    [SerializeField] private int _requiredRepetitions = 1;
+
+    [SerializeField] private bool _disableOnSuccess = true;
 
     [SerializeField] private TMP_Text _textField;
 
     private int _characterIndex;
 
-    private KeyCode _currentKey;
+    private int _repetitions = 0;
 
     public string Text
     {
-        get { return _text; }
-        set { _text = value; }
+        get => _text;
+        set
+        {
+            _text = value; 
+            Reset();
+        }
     }
 
-    [FormerlySerializedAs("OnInputSuccess")] public Event Matched;
+    public bool TextActive
+    {
+        set => _textField.gameObject.SetActive(value);
+    }
+
+    [FormerlySerializedAs("OnInputSuccess")]
+    public Event Matched;
+    public Event RepetitionsCompleted;
 
     private void OnEnable()
     {
+        TextActive = true;
+        Reset();
+    }
+
+    private void OnDisable()
+    {
+        TextActive = false;
+    }
+
+    private void Reset()
+    {
+        ResetRepetitions();
         ResetMatching();
     }
 
@@ -39,6 +64,7 @@ public class Tooth : MonoBehaviour
         char input = Input.inputString.First();
         MatchCharacter(input);
     }
+
     private void UpdateText()
     {
         string matched = this.Text.Substring(0, _characterIndex);
@@ -51,18 +77,23 @@ public class Tooth : MonoBehaviour
 
     private void MatchCharacter(char input)
     {
-        if (input == this.Text[_characterIndex])
+        if (input.EqualsIgnoreCase(this.Text[_characterIndex]))
             OnCharacterMatched();
         else
-        {
             ResetMatching();
-        }
     }
 
     private void ResetMatching()
     {
         _characterIndex = 0;
         _textField.text = this.Text;
+
+        this.enabled = string.IsNullOrEmpty(this.Text) == false;
+    }
+
+    private void ResetRepetitions()
+    {
+        _repetitions = 0;
     }
 
     private void OnCharacterMatched()
@@ -72,17 +103,26 @@ public class Tooth : MonoBehaviour
         UpdateText();
 
         if (_characterIndex >= Text.Length)
-        {
-            OnSuccess();
-        }
+            OnMatched();
     }
 
-    private void OnSuccess()
+    private void OnMatched()
     {
+        _repetitions++;
         Matched?.Invoke(this);
 
+        if (_repetitions < _requiredRepetitions)
+            ResetMatching();
+        else
+            OnRepetitionsCompleted();
+    }
+
+    private void OnRepetitionsCompleted()
+    {
+        RepetitionsCompleted?.Invoke(this);
+
         if (_disableOnSuccess)
-            gameObject.SetActive(false);
+            enabled = false;
     }
 
     [Serializable]

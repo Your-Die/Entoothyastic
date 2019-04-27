@@ -17,6 +17,14 @@ public class MouthDefinition : ScriptableObject
             if (string.IsNullOrEmpty(text))
                 continue;
 
+            if (tooth == null)
+            {
+                Debug.LogError("Tooth is null." +
+                               " The MouthController probably has some empty teeth entries in the teeth list." +
+                               " Please remove or fill those.");
+                continue;
+            }
+
             tooth.Text = text;
             tooth.gameObject.SetActive(true);
             yield return tooth;

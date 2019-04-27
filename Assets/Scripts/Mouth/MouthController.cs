@@ -30,12 +30,12 @@ public class MouthController : MonoBehaviour
         _unmatchedTeeth = definition.Apply(_teeth).ToList();
 
         foreach (Tooth tooth in _unmatchedTeeth)
-            tooth.Matched.AddListener(OnToothMatched);
+            tooth.RepetitionsCompleted.AddListener(OnToothMatched);
     }
 
     private void OnToothMatched(Tooth tooth)
     {
-        tooth.Matched.RemoveListener(OnToothMatched);
+        tooth.RepetitionsCompleted.RemoveListener(OnToothMatched);
         _unmatchedTeeth.Remove(tooth);
 
         if (!_unmatchedTeeth.Any())
