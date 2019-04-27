@@ -10,17 +10,15 @@ public class Tooth : MonoBehaviour
     [SerializeField] private string _text;
     [SerializeField] private Color _matchedTextColor = Color.red;
 
-    [SerializeField] private bool _disableOnSuccess;
+    [SerializeField] private bool _disableOnSuccess = true;
 
     [SerializeField] private TMP_Text _textField;
 
     private int _characterIndex;
 
-    private KeyCode _currentKey;
-
     public string Text
     {
-        get { return _text; }
+        get => _text;
         set
         {
             _text = value; 
@@ -28,11 +26,22 @@ public class Tooth : MonoBehaviour
         }
     }
 
+    public bool TextActive
+    {
+        set => _textField.gameObject.SetActive(value);
+    }
+
     [FormerlySerializedAs("OnInputSuccess")] public Event Matched;
 
     private void OnEnable()
     {
+        TextActive = true;
         ResetMatching();
+    }
+
+    private void OnDisable()
+    {
+        TextActive = false;
     }
 
     private void Update()
@@ -43,6 +52,7 @@ public class Tooth : MonoBehaviour
         char input = Input.inputString.First();
         MatchCharacter(input);
     }
+
     private void UpdateText()
     {
         string matched = this.Text.Substring(0, _characterIndex);
@@ -68,7 +78,7 @@ public class Tooth : MonoBehaviour
         _characterIndex = 0;
         _textField.text = this.Text;
 
-        this.enabled = string.IsNullOrEmpty(this.Text);
+        this.enabled = string.IsNullOrEmpty(this.Text) == false;
     }
 
     private void OnCharacterMatched()
@@ -88,7 +98,7 @@ public class Tooth : MonoBehaviour
         Matched?.Invoke(this);
 
         if (_disableOnSuccess)
-            gameObject.SetActive(false);
+            enabled = false;
     }
 
     [Serializable]
