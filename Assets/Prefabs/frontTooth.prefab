@@ -261,7 +261,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 0f324b163e3fe8549acb4d0b56f14da7, type: 3}
+  - {fileID: 2100000, guid: 4b226e9a1ae2a864d8f5d4245e1a35e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -330,9 +330,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: 
   _matchedTextColor: {r: 1, g: 0, b: 0, a: 1}
+  _requiredRepetitions: 1
   _disableOnSuccess: 1
   _textField: {fileID: 4602658974890594618}
   Matched:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -350,8 +355,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BrushTarget: {fileID: 0}
   BrushAfterMoving: 1
-  lettersNeeded: 
+  brushStrokeLengthModifier: 1
   dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &7983449262904142143
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +419,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 0f324b163e3fe8549acb4d0b56f14da7, type: 3}
+  - {fileID: 2100000, guid: b59b6e4c3438cd442a0efdf7e21a3e74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

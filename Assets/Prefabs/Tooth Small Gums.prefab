@@ -252,8 +252,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BrushTarget: {fileID: 0}
   BrushAfterMoving: 1
-  lettersNeeded: 
+  brushStrokeLengthModifier: 1
   dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &5029286775597233559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,9 +273,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: 
   _matchedTextColor: {r: 1, g: 0, b: 0, a: 1}
+  _requiredRepetitions: 1
   _disableOnSuccess: 1
   _textField: {fileID: 7750683939413578054}
   Matched:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -341,6 +351,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.86200005
       objectReference: {fileID: 0}
+    - target: {fileID: 7087980526486968828, guid: 7c5e687c9d7193444b7401d3dcc6f1d7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b226e9a1ae2a864d8f5d4245e1a35e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c5e687c9d7193444b7401d3dcc6f1d7, type: 3}
 --- !u!4 &143667021291133629 stripped
