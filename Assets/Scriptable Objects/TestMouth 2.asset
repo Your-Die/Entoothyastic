@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: TestMouth 2
   m_EditorClassIdentifier: 
   _teethTexts:
-  - ABB
+  - C
   - 
-  - ERA
-  - BFG
-  - 
+  - G
+  - J
+  - T
   - 
   - 
   - 

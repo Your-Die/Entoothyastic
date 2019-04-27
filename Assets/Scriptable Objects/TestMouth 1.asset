@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: TestMouth 1
   m_EditorClassIdentifier: 
   _teethTexts:
-  - AVB
-  - 
-  - ERG
-  - HJK
-  - 
-  - 
-  - 
-  - 
+  - A
+  - S
+  - D
+  - F
+  - J
+  - K
+  - L
+  - V
+  - B
+  - T

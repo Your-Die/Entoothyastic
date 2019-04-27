@@ -1,0 +1,11 @@
+diff a/Assets/Materials.meta b/Assets/Materials.meta	(rejected hunks)
+@@ -1,5 +1,9 @@
+  fileFormatVersion: 2
+++<<<<<<< HEAD
+ +guid: 6bde563ad46de174da36d144fb0d88d3
+++=======
++ guid: 2e3656c1b4430de40a9ab24528e36f4a
+++>>>>>>> DirtyTooth shader with settings
+  folderAsset: yes
+  DefaultImporter:
+    externalObjects: {}
