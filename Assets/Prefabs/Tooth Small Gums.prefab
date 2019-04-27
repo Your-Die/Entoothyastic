@@ -204,6 +204,38 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &1478893844649958540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7827170996661734093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2651756536530819789}
+        m_MethodName: ToothCleaned
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &5029286775597233559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,21 +256,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &1478893844649958540
+--- !u!114 &2651756536530819789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7827170996661734093}
+  m_GameObject: {fileID: 8429113955931106870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Script: {fileID: 11500000, guid: 97aed3237bdd4674bb45b74cce44b8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lettersNeeded: 
-  dirtiness: 0
-  m_mover: {fileID: 0}
+  cleanliness: 0
+  fadeOutTime: 0.5
 --- !u!1001 &2287370781321860036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,21 +282,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tooth Small Gums
       objectReference: {fileID: 0}
-    - target: {fileID: 6159488218474771535, guid: 794a44b3e5d979643b849a2fe6409b73,
+    - target: {fileID: -7886136507717698191, guid: 794a44b3e5d979643b849a2fe6409b73,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.673
-      objectReference: {fileID: 0}
-    - target: {fileID: 6159488218474771535, guid: 794a44b3e5d979643b849a2fe6409b73,
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3156433062905673926, guid: 4038e2c5e57251740b9c4b4b984de43a,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 6159488218474771535, guid: 794a44b3e5d979643b849a2fe6409b73,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 119.58314
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 794a44b3e5d979643b849a2fe6409b73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -351,6 +373,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 54.324253
       objectReference: {fileID: 0}
+    - target: {fileID: 6159488218474771535, guid: 794a44b3e5d979643b849a2fe6409b73,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.673
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159488218474771535, guid: 794a44b3e5d979643b849a2fe6409b73,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159488218474771535, guid: 794a44b3e5d979643b849a2fe6409b73,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 119.58314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847933817623972992, guid: 794a44b3e5d979643b849a2fe6409b73,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fbdb2ada9f776a249bf1d1467dc86105, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 794a44b3e5d979643b849a2fe6409b73, type: 3}
 --- !u!1 &7827170996661734093 stripped
@@ -362,6 +404,12 @@ GameObject:
 --- !u!4 &6540611312573331678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 794a44b3e5d979643b849a2fe6409b73,
+    type: 3}
+  m_PrefabInstance: {fileID: 2287370781321860036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8429113955931106870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7729414875382005234, guid: 794a44b3e5d979643b849a2fe6409b73,
     type: 3}
   m_PrefabInstance: {fileID: 2287370781321860036}
   m_PrefabAsset: {fileID: 0}
