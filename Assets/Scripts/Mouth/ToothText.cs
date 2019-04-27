@@ -110,17 +110,17 @@ public class ToothText : MonoBehaviour
     private void OnBrushComplete(ToothInfo info)
     {
         InputHandler.Instance.RemoveInhibitor(this);
+
+        if (_repetitions < _requiredRepetitions)
+            ResetMatching();
+        else
+            OnRepetitionsCompleted();
     }
 
     private void OnMatched()
     {
         _repetitions++;
         Matched?.Invoke(this);
-
-        if (_repetitions < _requiredRepetitions)
-            ResetMatching();
-        else
-            OnRepetitionsCompleted();
     }
 
     private void OnRepetitionsCompleted()

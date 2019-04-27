@@ -3,13 +3,32 @@ using System.Linq;
 using Chinchillada.Timers;
 using UnityEngine;
 
-public class InputHandler : MonoBehaviourSingleton<InputHandler>
+public class InputHandler : MonoBehaviour
 {
     [SerializeField] private Timer _cooldown = new Timer(0);
 
     private readonly List<object> _inhibitors = new List<object>();
 
+    private static InputHandler _instance;
+
     private bool IsInhibited => _inhibitors.Any();
+
+    public static InputHandler Instance
+    {
+        get
+        {
+            if (_instance != null)
+                return _instance;
+
+            _instance = FindObjectOfType<InputHandler>();
+
+            if (_instance != null)
+                return _instance;
+
+            _instance = new GameObject(nameof(InputHandler)).AddComponent<InputHandler>();
+            return _instance;
+        }
+    }
 
     public bool TryGetKey(out char? key)
     {
