@@ -15,8 +15,10 @@
           </e>
           <e p="Title" t="Include">
             <e p="AnimateText.cs" t="Include" />
+            <e p="FadeToBlack.cs" t="Include" />
             <e p="PopOnEnable.cs" t="Include" />
             <e p="SpriteToothController.cs" t="Include" />
+            <e p="ToothbrushCurser.cs" t="Include" />
             <e p="ToothSprite.cs" t="Include" />
           </e>
           <e p="TMPHelper.cs" t="Include" />

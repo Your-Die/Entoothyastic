@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 namespace Title
@@ -11,8 +12,10 @@ namespace Title
         private float startTime;
         [SerializeField] private float _animationSpeed;
         [SerializeField] private float _maximumSize;
-
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _audioClip;
         private Vector3 _startScale;
+        public Outline Outline;
 
         private void Start()
         {
@@ -34,12 +37,16 @@ namespace Title
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (!_audioSource) _audioSource = GetComponent<AudioSource>();
+            if (Outline) Outline.enabled = true;
+            _audioSource.PlayOneShot(_audioClip);
             _isHovering = true;
             startTime = Time.time;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (Outline) Outline.enabled = false;
             _isHovering = false;
             startTime = Time.time;
         }
