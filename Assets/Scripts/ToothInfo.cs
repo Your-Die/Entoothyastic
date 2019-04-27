@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ToothInfo : MonoBehaviour
 {
+    public Transform BrushTarget;
+
     public string lettersNeeded="";
     [Range(0,1)]
     public float dirtiness=0;
@@ -13,9 +15,15 @@ public class ToothInfo : MonoBehaviour
     List<Transform> m_keyframeSource;
     float m_maxDistance;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        foreach(Transform ch in transform){
+            if(ch.name.ToLower().Contains("text")){
+                BrushTarget = ch;
+            }
+        }
 
         #region Distance Calculation
         if(Vector3.Dot(transform.up, Vector3.up) > 0){
