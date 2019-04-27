@@ -65,12 +65,10 @@ public class Tooth : MonoBehaviour
 
     private void MatchCharacter(char input)
     {
-        if (input == this.Text[_characterIndex])
+        if (input.EqualsIgnoreCase(this.Text[_characterIndex]))
             OnCharacterMatched();
         else
-        {
             ResetMatching();
-        }
     }
 
     private void ResetMatching()

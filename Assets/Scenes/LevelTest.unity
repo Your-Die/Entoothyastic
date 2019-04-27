@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -127,6 +127,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1047315326468300928}
     m_Modifications:
+    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
+        type: 3}
+      propertyPath: m_Name
+      value: frontTooth (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 4602658974890594618, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -156,11 +161,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
-        type: 3}
-      propertyPath: m_Name
-      value: frontTooth (6)
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -253,6 +253,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
+        type: 3}
+      propertyPath: m_Name
+      value: frontTooth
+      objectReference: {fileID: 0}
     - target: {fileID: 4602658974890594618, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -277,11 +282,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
-        type: 3}
-      propertyPath: m_Name
-      value: frontTooth
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -347,6 +347,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1047315326468300928}
     m_Modifications:
+    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
+        type: 3}
+      propertyPath: m_Name
+      value: frontTooth (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 4602658974890594618, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -376,11 +381,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
-        type: 3}
-      propertyPath: m_Name
-      value: frontTooth (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -461,15 +461,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1313145650}
     m_Modifications:
-    - target: {fileID: 4089928469512894739, guid: 5663c1069c62880478aba731a04af84b,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_Name
       value: frontTooth (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089928469512894739, guid: 5663c1069c62880478aba731a04af84b,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -562,6 +562,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1047315326468300928}
     m_Modifications:
+    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
+        type: 3}
+      propertyPath: m_Name
+      value: frontTooth (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 4602658974890594618, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -591,11 +596,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
-        type: 3}
-      propertyPath: m_Name
-      value: frontTooth (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -958,6 +958,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1047315326468300928}
     m_Modifications:
+    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
+        type: 3}
+      propertyPath: m_Name
+      value: frontTooth (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 4602658974890594618, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -987,11 +992,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4904517374267543102, guid: 5663c1069c62880478aba731a04af84b,
-        type: 3}
-      propertyPath: m_Name
-      value: frontTooth (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -1102,10 +1102,6 @@ MonoBehaviour:
   - {fileID: 2005595452}
   - {fileID: 978547224}
   - {fileID: 1059883226}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _mouthDefinitions:
   - {fileID: 11400000, guid: b22ccba532f65674eb28b4401d71bcb7, type: 2}
   - {fileID: 11400000, guid: d7c43207276c37643b0b0a0a524b2673, type: 2}
