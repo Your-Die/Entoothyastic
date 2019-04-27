@@ -250,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -839,7 +839,7 @@ PrefabInstance:
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -859,17 +859,17 @@ PrefabInstance:
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0578091
+      value: 0.06464791
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.057809014
+      value: 0.064647816
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05780909
+      value: 0.0646479
       objectReference: {fileID: 0}
     - target: {fileID: 3619697256310426041, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -1383,7 +1383,7 @@ PrefabInstance:
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8235677760385989677, guid: 5663c1069c62880478aba731a04af84b,
         type: 3}
@@ -1652,7 +1652,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.8392157, g: 1, b: 0.9827726, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1914,7 +1914,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.01615344, g: 0.020877838, b: 0.028301895, a: 0}
+  m_BackGroundColor: {r: 0.5254539, g: 0.9056604, b: 0.9056604, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2044,10 +2044,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ToothbrushPositionerParent: {fileID: 7743177004405998389}
   m_ToothbrushBrushingChild: {fileID: 7450591914355144813}
-  m_SpeedModifierMove: 3
-  m_SpeedModifierBrush: 8
-  animationDuration: 1
-  m_BrushStrokeLength: 0.2
+  m_SpeedModifierMove: 5
+  m_SpeedModifierBrush: 12
+  animationDuration: 0.3
+  m_BrushStrokeLength: 0.3
   m_RotationKeyframes_TopMouth_Parent: {fileID: 2039403577}
   m_RotationKeyframes_BottomMouth_Parent: {fileID: 1438687809}
   RotationKeyframes_TopMouth: []
@@ -2790,7 +2790,7 @@ PrefabInstance:
     - target: {fileID: 6540611312573331678, guid: d258f0568fa0dd544b8491b9bdef60f7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6540611312573331678, guid: d258f0568fa0dd544b8491b9bdef60f7,
         type: 3}
@@ -3084,8 +3084,9 @@ MonoBehaviour:
   - {fileID: 1071038563}
   - {fileID: 1113670000}
   _mouthDefinitions:
-  - {fileID: 11400000, guid: b22ccba532f65674eb28b4401d71bcb7, type: 2}
+  - {fileID: 11400000, guid: 93fca2f83cc38ae4e8a262ae1f929149, type: 2}
   - {fileID: 11400000, guid: d7c43207276c37643b0b0a0a524b2673, type: 2}
+  - {fileID: 11400000, guid: b22ccba532f65674eb28b4401d71bcb7, type: 2}
   _disableOnFinish: 1
   AllDefinitionsMatched:
     m_PersistentCalls:
@@ -3163,7 +3164,7 @@ Transform:
   m_GameObject: {fileID: 7983449261096863905}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0.16, y: -0.82, z: 0.02}
-  m_LocalScale: {x: 72.95853, y: 100, z: 100}
+  m_LocalScale: {x: 82.3191, y: 112.829994, z: 112.829994}
   m_Children: []
   m_Father: {fileID: 8235677759300296115}
   m_RootOrder: 0
