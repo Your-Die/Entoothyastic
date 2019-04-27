@@ -61,7 +61,7 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
     /// </summary>
     /// <param name="targetPos"></param>
 	public void MoveToTargetAndBrush(ToothInfo targetTooth){
-        Vector3 targetPos = targetTooth.transform.position;
+        Vector3 targetPos = targetTooth.BrushTarget.position;
         //cache previous values if target is the same
         bool isTargetTheSame = false;
         Vector3 brushingUpDir = m_ToothbrushBrushingChild.forward;//TODO: figure out depending on how hand is held
