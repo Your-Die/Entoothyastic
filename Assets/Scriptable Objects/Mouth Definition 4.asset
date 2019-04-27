@@ -10,16 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cddd91181a986d4881874147eca8575, type: 3}
-  m_Name: TestMouth 1
+  m_Name: Mouth Definition 4
   m_EditorClassIdentifier: 
-  _teethTexts:
-  - A
-  - S
-  - D
-  - F
-  - J
-  - K
-  - L
-  - V
-  - B
-  - T
+  _teethTexts: []
