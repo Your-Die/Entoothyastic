@@ -12,8 +12,6 @@ namespace Title
         private float startTime;
         [SerializeField] private float _animationSpeed;
         [SerializeField] private float _maximumSize;
-        [SerializeField] private AudioSource _audioSource;
-        [SerializeField] private AudioClip _audioClip;
         private Vector3 _startScale;
         public Outline Outline;
 
@@ -37,9 +35,8 @@ namespace Title
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (!_audioSource) _audioSource = GetComponent<AudioSource>();
             if (Outline) Outline.enabled = true;
-            _audioSource.PlayOneShot(_audioClip);
+            AudioManager.instance.Play("Whoosh");
             _isHovering = true;
             startTime = Time.time;
         }

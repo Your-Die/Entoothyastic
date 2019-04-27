@@ -221,7 +221,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Main
+          m_StringArgument: LevelTest2
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -277,7 +277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clickDistance: 40
-  _audioSource: {fileID: 1170456714}
   _audioClip: {fileID: 8300000, guid: 2621794d9c3a06e40880c1b4b747b254, type: 3}
 --- !u!1 &407540580
 GameObject:
@@ -336,7 +335,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8c325f531a6c84042868dfcc8eba26a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b97bfc95d42d4e549b0c9ebf8f70189c, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -533,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _teeth: []
-  _fallSpeed: 150
+  _fallSpeed: 250
   _numberOfTeeth: 10
   _toothSpritePrefab: {fileID: 8832865791550818174, guid: 2788dfd19a383d84cb56506ff201f723,
     type: 3}
@@ -618,8 +617,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   _animationSpeed: 5
   _maximumSize: 0.1
-  _audioSource: {fileID: 1170456714}
-  _audioClip: {fileID: 8300000, guid: 93829e650ba35eb47b76370590dcb30c, type: 3}
   Outline: {fileID: 0}
 --- !u!114 &848830193
 MonoBehaviour:
@@ -675,18 +672,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1170456714}
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: be7a85511a598a445bd91c06820805d0,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 22465753}
         m_MethodName: Fade
         m_Mode: 1
@@ -696,6 +681,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1456463891}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gong
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -793,8 +789,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   _animationSpeed: 0
   _maximumSize: 0
-  _audioSource: {fileID: 0}
-  _audioClip: {fileID: 0}
   Outline: {fileID: 0}
 --- !u!114 &1170456710
 MonoBehaviour:
@@ -1132,6 +1126,78 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1456463890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1456463892}
+  - component: {fileID: 1456463891}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1456463891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456463890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8456ce6d140cb4b408a7caa8349ff27a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: Toothbrush
+    clip: {fileID: 8300000, guid: 2621794d9c3a06e40880c1b4b747b254, type: 3}
+    volume: 0.59
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.226
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Gong
+    clip: {fileID: 8300000, guid: be7a85511a598a445bd91c06820805d0, type: 3}
+    volume: 0.412
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Whoosh
+    clip: {fileID: 8300000, guid: 93829e650ba35eb47b76370590dcb30c, type: 3}
+    volume: 0.677
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.317
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+--- !u!4 &1456463892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456463890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 894.8251, y: 456.3445, z: -2844.5403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510997648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1417,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -3558373685406419912, guid: aa401cf05f7fef5429d4e049f0a77a3c,
+  m_Sprite: {fileID: -3558373685406419912, guid: 03abcef298d9d1e478e64827909fc2a3,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
