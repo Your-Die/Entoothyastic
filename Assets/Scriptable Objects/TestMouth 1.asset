@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: TestMouth 1
   m_EditorClassIdentifier: 
   _teethTexts:
-  - A
-  - S
-  - D
-  - F
-  - J
   - K
-  - L
+  - J
+  - F
+  - D
+  - S
+  - A
   - V
-  - B
   - T
-  - Y
   - G
+  - L
+  - B
+  - Y
