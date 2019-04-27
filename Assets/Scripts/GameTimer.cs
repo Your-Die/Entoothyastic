@@ -39,10 +39,6 @@ public class GameTimer : MonoBehaviour
             animator.SetTrigger("PassedSecond");
             SetTimerText(currentTime);
             UpdateSlider(currentTime);
-            if (currentTime <= 5)
-            {
-                AddBonusTime(4);
-            }
             if (currentTime <= 0)
             {
                 timeOut.Invoke();
