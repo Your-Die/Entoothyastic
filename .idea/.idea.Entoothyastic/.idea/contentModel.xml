@@ -7,7 +7,16 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="AudioManager" t="Include">
+            <e p="AudioManager.cs" t="Include" />
+            <e p="Sound.cs" t="Include" />
+          </e>
           <e p="DebugLogger.cs" t="Include" />
+          <e p="FaceController.cs" t="Include" />
+          <e p="FaceManager.cs" t="Include" />
+          <e p="Hand and brush Movement" t="Include">
+            <e p="HandAndBrushMover.cs" t="Include" />
+          </e>
           <e p="Mouth" t="Include">
             <e p="MouthController.cs" t="Include" />
             <e p="MouthDefinition.cs" t="Include" />
@@ -15,6 +24,7 @@
           </e>
           <e p="Title" t="Include">
             <e p="AnimateText.cs" t="Include" />
+            <e p="AppPaused.cs" t="Include" />
             <e p="FadeToBlack.cs" t="Include" />
             <e p="PopOnEnable.cs" t="Include" />
             <e p="SpriteToothController.cs" t="Include" />
@@ -22,10 +32,13 @@
             <e p="ToothSprite.cs" t="Include" />
           </e>
           <e p="TMPHelper.cs" t="Include" />
+          <e p="ToothInfo.cs" t="Include" />
+          <e p="utility scripts" t="Include">
+            <e p="Singleton.cs" t="Include" />
+          </e>
+          <e p="Utility.cs" t="Include" />
         </e>
-        <e p="Ultimate Game Music Collection" t="Include">
-          <e p="_README.txt" t="Include" />
-        </e>
+        <e p="ToothCleanliness.cs" t="Include" />
       </e>
       <e p="Entoothyastic.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
