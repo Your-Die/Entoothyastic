@@ -5,6 +5,7 @@ using UnityEngine;
 public class ToothInfo : MonoBehaviour
 {
     public Transform BrushTarget;
+    public bool BrushAfterMoving = true;
 
     public string lettersNeeded="";
     [Range(0,1)]
@@ -52,7 +53,7 @@ public class ToothInfo : MonoBehaviour
             m_maxDistance = 0;
             m_SortedDistancesAndIndexes = new SortedDictionary<float, int>();
             for(int i=0; i<m_keyframeSource.Count; i++){
-                float dist = Vector3.Distance(transform.position, m_keyframeSource[i].position);
+                float dist = Vector3.Distance(BrushTarget.position, m_keyframeSource[i].position);
                 
                 if(m_SortedDistancesAndIndexes.ContainsKey(dist)){
                     Debug.Log(dist+"; i: "+i);
