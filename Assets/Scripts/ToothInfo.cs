@@ -9,6 +9,8 @@ public class ToothInfo : MonoBehaviour
     public bool BrushAfterMoving = true;
     public float brushStrokeLengthModifier = 1;
 
+
+
     //public string lettersNeeded="";
     [Range(0,1)]
     public float dirtiness=0;

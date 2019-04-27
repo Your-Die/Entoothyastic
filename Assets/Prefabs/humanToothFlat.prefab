@@ -116,7 +116,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2978107958042485553}
-  m_Mesh: {fileID: -3156433062905673926, guid: 794a44b3e5d979643b849a2fe6409b73, type: 3}
+  m_Mesh: {fileID: -3156433062905673926, guid: 4038e2c5e57251740b9c4b4b984de43a, type: 3}
 --- !u!23 &3384823121916842563
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 794a44b3e5d979643b849a2fe6409b73, type: 3}
+  - {fileID: 2100000, guid: fbdb2ada9f776a249bf1d1467dc86105, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 534393741238662617}
   m_Layer: 0
-  m_Name: humanTooth
+  m_Name: humanToothFlat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
