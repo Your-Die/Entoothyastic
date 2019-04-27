@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
-public class Timer : MonoBehaviour
+public class GameTimer : MonoBehaviour
 {
     public int timeDuration;
     private int currentTime = 10000;
