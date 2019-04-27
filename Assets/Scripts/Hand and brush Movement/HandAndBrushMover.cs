@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class HandAndBrushMover : MonoBehaviour
+public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
 {
     [SerializeField]
     Transform m_ToothbrushPositionerParent;
@@ -15,9 +15,15 @@ public class HandAndBrushMover : MonoBehaviour
 	float animationDuration = 1;
     [SerializeField]
     float m_brushingMotionWidth = 0.1f;
+    [SerializeField]
+    Transform m_RotationKeyframes_TopMouth_Parent;
+    [SerializeField]
+    Transform m_RotationKeyframes_BottomMouth_Parent;
 	//[SerializeField]
+    [HideInInspector]
 	public List<Transform> RotationKeyframes_TopMouth;
 	//[SerializeField]
+    [HideInInspector]
 	public List<Transform> RotationKeyframes_BottomMouth;
     
 	[SerializeField]
@@ -31,7 +37,17 @@ public class HandAndBrushMover : MonoBehaviour
     Vector3 m_TargetPosLastFrame;
 
 	
-    void Start(){
+    void Awake(){
+        RotationKeyframes_TopMouth = new List<Transform>();
+        RotationKeyframes_BottomMouth = new List<Transform>();
+        foreach(Transform ch in m_RotationKeyframes_TopMouth_Parent){
+            RotationKeyframes_TopMouth.Add(ch);
+            ch.gameObject.SetActive(false);
+        }
+        foreach(Transform ch in m_RotationKeyframes_BottomMouth_Parent){
+            RotationKeyframes_BottomMouth.Add(ch);
+            ch.gameObject.SetActive(false);
+        }
 	}
 	
 	void Update(){
@@ -48,7 +64,7 @@ public class HandAndBrushMover : MonoBehaviour
         Vector3 targetPos = targetTooth.transform.position;
         //cache previous values if target is the same
         bool isTargetTheSame = false;
-        Vector3 brushingUpDir = m_ToothbrushBrushingChild.right;//TODO: figure out depending on how hand is held
+        Vector3 brushingUpDir = m_ToothbrushBrushingChild.forward;//TODO: figure out depending on how hand is held
         
 
         if(Vector3.Distance(m_TargetPosLastFrame, targetPos) < 0.01f)

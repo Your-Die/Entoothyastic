@@ -7,22 +7,22 @@ public class ToothInfo : MonoBehaviour
     public string lettersNeeded="";
     [Range(0,1)]
     public float dirtiness=0;
-    [SerializeField]
-    HandAndBrushMover m_mover;
+    //[SerializeField]
+    //HandAndBrushMover m_mover;
     SortedDictionary<float, int> m_SortedDistancesAndIndexes;
     List<Transform> m_keyframeSource;
     float m_maxDistance;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
 
         #region Distance Calculation
         if(Vector3.Dot(transform.up, Vector3.up) > 0){
-            m_keyframeSource = m_mover.RotationKeyframes_BottomMouth;
+            m_keyframeSource = HandAndBrushMover.Instance.RotationKeyframes_BottomMouth;
         }
         else{
-            m_keyframeSource = m_mover.RotationKeyframes_TopMouth;
+            m_keyframeSource = HandAndBrushMover.Instance.RotationKeyframes_TopMouth;
         }
         m_SortedDistancesAndIndexes = new SortedDictionary<float, int>();
         #endregion
