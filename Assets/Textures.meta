@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: bd5b5ce0fd7195046941cb78cb31568b
+=======
+guid: 7b7556ec9b5a6a44da58acea7e07514b
+>>>>>>> DirtyTooth shader with settings
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
