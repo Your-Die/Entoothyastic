@@ -10,11 +10,13 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
     [SerializeField]
     Transform m_ToothbrushBrushingChild;
     [SerializeField]
-	float m_SpeedModifier = 1;
+	float m_SpeedModifierMove = 1.4f;
+    [SerializeField]
+	float m_SpeedModifierBrush = 4;
 	[SerializeField]
 	float animationDuration = 1;
     [SerializeField]
-    float m_brushingMotionWidth = 0.1f;
+    float m_BrushStrokeLength = 0.2f;
     [SerializeField]
     Transform m_RotationKeyframes_TopMouth_Parent;
     [SerializeField]
@@ -40,7 +42,7 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
 
 	
     void Awake(){
-        m_coroutines = new Coroutine[3];
+        m_coroutines = new Coroutine[4];
         RotationKeyframes_TopMouth = new List<Transform>();
         RotationKeyframes_BottomMouth = new List<Transform>();
         foreach(Transform ch in m_RotationKeyframes_TopMouth_Parent){
@@ -73,7 +75,8 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
         m_ToothbrushBrushingChild.localRotation = Quaternion.identity;
         #endregion
 
-        Vector3 targetPos = targetTooth.BrushTarget.position;
+        
+        Vector3 targetPos = targetTooth.BrushTarget.position + m_BrushStrokeLength * targetTooth.brushStrokeLengthModifier * targetTooth.BrushTarget.up;
         //cache previous values if target is the same
         bool isTargetTheSame = false;
         //Vector3 brushingUpDir = m_ToothbrushBrushingChild.right;//TODO: figure out depending on how hand is held
@@ -98,17 +101,17 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
                 m_BrushTravelPosAnimCurve,
                 m_BrushTravelRotAnimCurve,
                 0, 0, 0,
-                animationDuration, m_SpeedModifier,
+                animationDuration, m_SpeedModifierMove,
                 ()=>{
                     if(targetTooth.BrushAfterMoving == true)
-                        BrushTooth1x_Toggled(m_ToothbrushBrushingChild);
+                        BrushTooth1x_Toggled(m_ToothbrushBrushingChild, targetTooth);
                     }
             ));
         }
         else{
             // brush teeth 1x
             if(targetTooth.BrushAfterMoving == true)
-                BrushTooth1x_Toggled(m_ToothbrushBrushingChild);
+                BrushTooth1x_Toggled(m_ToothbrushBrushingChild, targetTooth);
         }
 
         m_TargetPosLastFrame = targetPos;
@@ -120,29 +123,50 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
     /// </summary>
     /// <param name="brushingMoveCurve"></param>
     /// <param name="upDir"></param>
-    void BrushTooth1x_Toggled(Transform brushTr){
+    void BrushTooth1x_Toggled(Transform brushTr, ToothInfo targetTooth){
+        float dir;
+        if(Vector3.Dot(targetTooth.BrushTarget.up, m_ToothbrushBrushingChild.forward) > 0)
+            dir = -1;
+        else
+            dir = 1;
+
         m_coroutines[1] = StartCoroutine(LerpToTarget(
             brushTr,
             brushTr.position,
-            brushTr.position + m_brushingMotionWidth * m_ToothbrushBrushingChild.forward,
+            brushTr.position + dir * m_BrushStrokeLength * targetTooth.brushStrokeLengthModifier * m_ToothbrushBrushingChild.forward * 2,
             brushTr.rotation,
             brushTr.rotation,
             m_BrushTravelPosAnimCurve,
             m_BrushTravelRotAnimCurve,
             0, 0, 0,
-            animationDuration, m_SpeedModifier,
+            animationDuration, m_SpeedModifierBrush,
             ()=>{
                 m_coroutines[2] = StartCoroutine(LerpToTarget(
                     brushTr,
                     brushTr.position,
-                    brushTr.position - m_brushingMotionWidth * m_ToothbrushBrushingChild.forward,
+                    brushTr.position - dir * m_BrushStrokeLength * targetTooth.brushStrokeLengthModifier * m_ToothbrushBrushingChild.forward * 2,
                     brushTr.rotation,
                     brushTr.rotation,
                     m_BrushTravelPosAnimCurve,
                     m_BrushTravelRotAnimCurve,
                     0, 0, 0,
-                    animationDuration, m_SpeedModifier,
-                    ()=>{}
+                    animationDuration, m_SpeedModifierBrush,
+                    ()=>{ 
+                        // m_coroutines[3] = StartCoroutine(LerpToTarget(
+                        //     brushTr,
+                        //     brushTr.position,
+                        //     brushTr.position + dir * m_brushingMotionWidth * targetTooth.brushStrokeLengthModifier * m_ToothbrushBrushingChild.forward * 2,
+                        //     brushTr.rotation,
+                        //     brushTr.rotation,
+                        //     m_BrushTravelPosAnimCurve,
+                        //     m_BrushTravelRotAnimCurve,
+                        //     0, 0, 0,
+                        //     animationDuration, m_SpeedModifierBrush,
+                        //     ()=>{ 
+                                targetTooth.OnBrushedInstanceComplete();
+                                //}
+                        //));
+                    }
                 ));
             }
         ));

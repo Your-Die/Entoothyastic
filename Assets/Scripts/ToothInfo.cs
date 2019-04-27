@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 public class ToothInfo : MonoBehaviour
 {
     public Transform BrushTarget;
     public bool BrushAfterMoving = true;
+    public float brushStrokeLengthModifier = 1;
 
-    public string lettersNeeded="";
+    //public string lettersNeeded="";
     [Range(0,1)]
     public float dirtiness=0;
     //[SerializeField]
@@ -16,15 +18,20 @@ public class ToothInfo : MonoBehaviour
     List<Transform> m_keyframeSource;
     float m_maxDistance;
 
+    [System.Serializable]
+    public class Event : UnityEvent<ToothInfo> { }
+    [FormerlySerializedAs("OnInputSuccess")] public Event OnSuccessfullyBrushed_1x;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Transform ch in transform){
-            if(ch.name.ToLower().Contains("text")){
-                BrushTarget = ch;
+        if(BrushTarget==null)
+            foreach(Transform ch in transform){
+                if(ch.name.ToLower().Contains("text")){
+                    BrushTarget = ch;
+                }
             }
-        }
 
         #region Distance Calculation
         if(Vector3.Dot(transform.up, Vector3.up) > 0){
@@ -39,10 +46,8 @@ public class ToothInfo : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void OnBrushedInstanceComplete(){
+        OnSuccessfullyBrushed_1x?.Invoke(this);
     }
 
     public Quaternion GetClosestBlendedKeyframeRotation(int numberOfClosestKeyframes = 2, bool forceRecalculate = false){
