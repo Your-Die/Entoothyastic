@@ -24,6 +24,11 @@ public class MouthController : MonoBehaviour
         var definition = _mouthDefinitions.First();
         SetDefinition(definition);
     }
+    
+    public int getNumberOfTeeth()
+    {
+        return _teeth.Count;
+    }
 
     private void SetDefinition(MouthDefinition definition)
     {

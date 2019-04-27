@@ -18,6 +18,8 @@ public class FaceManager : MonoBehaviour
     private bool canAnimate = false;
     private enum States { In, Center, Out};
     private States currentState;
+    private int teethInCurrentFace;
+    private int teethCleaned = 0;
 
     private void Awake()
     {
@@ -67,7 +69,10 @@ public class FaceManager : MonoBehaviour
     /// <returns>Returns a face</returns>
     private FaceController PickRandomFace()
     {
-        return faces[Random.Range(0, faces.Count)];
+        FaceController newFace =faces[Random.Range(0, faces.Count)];
+        teethInCurrentFace = newFace.gameObject.GetComponent<MouthController>().getNumberOfTeeth();
+        teethCleaned = 0;
+        return newFace;
     }
 
     private void MoveFaceToStartPos()
@@ -101,6 +106,16 @@ public class FaceManager : MonoBehaviour
 
             CheckState();
         }
+    }
+
+    public void BrushedTooth()
+    {
+        teethCleaned++;
+        if(teethCleaned >= teethInCurrentFace)
+        {
+            NextFace();
+        }
+
     }
 
     private void CheckState()
