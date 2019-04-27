@@ -291,6 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8235677760385989677}
   - component: {fileID: 3619697256310426041}
+  - component: {fileID: 4295499082215372524}
   m_Layer: 0
   m_Name: frontTooth
   m_TagString: Untagged
@@ -335,6 +336,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &4295499082215372524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904517374267543102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lettersNeeded: 
+  dirtiness: 0
 --- !u!1 &7983449262904142143
 GameObject:
   m_ObjectHideFlags: 0
