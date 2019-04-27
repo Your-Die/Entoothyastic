@@ -4,17 +4,27 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-public class ToothText : MonoBehaviour
+public class ToothController : MonoBehaviour
 {
+    /// <summary>
+    /// Text field to display the text.
+    /// </summary>
     [SerializeField] private string _text;
+    /// <summary>
+    /// The color we display text in that has already been typed.
+    /// </summary>
     [SerializeField] private Color _matchedTextColor = Color.red;
-
+    
+    /// <summary>
+    /// The amount of times the player needs to repeat the <see cref="_text"/>.
+    /// </summary>
     [SerializeField] private int _requiredRepetitions = 1;
 
     [SerializeField] private bool _disableOnSuccess = true;
 
     [SerializeField] private ToothInfo _toothInfo;
     [SerializeField] private TMP_Text _textField;
+    [SerializeField] private ToothCleanliness _cleanliness;
 
     private InputHandler _inputHandler;
 
@@ -43,11 +53,15 @@ public class ToothText : MonoBehaviour
 
     private void OnEnable()
     {
+        // Get components.
         if (_textField == null)
             _textField = GetComponentInChildren<TMP_Text>();
         if (_toothInfo == null)
             _toothInfo = GetComponent<ToothInfo>();
+        if (_cleanliness == null)
+            _cleanliness = GetComponentInChildren<ToothCleanliness>();
 
+        // Setup text.
         TextActive = true;
         Reset();
     }
@@ -62,20 +76,31 @@ public class ToothText : MonoBehaviour
 
     private void Update()
     {
+        // Read input.
         if (InputHandler.Instance.TryGetKey(out var input))
             MatchCharacter(input.Value);
     }
 
+    /// <summary>
+    /// Update how we present the text.
+    /// </summary>
     private void UpdateText()
     {
+        // Get the part of the text we've already matched and the aprt we haven't yet.
         string matched = this.Text.Substring(0, _characterIndex);
         string notMatched = this.Text.Substring(_characterIndex);
 
+        // Make the matched text colored.
         string colored = TMPHelper.WrapColor(matched, _matchedTextColor);
 
+        // Put text in text field.
         _textField.text = colored + notMatched;
     }
 
+    /// <summary>
+    /// Try to match the <paramref name="input"/> to the current character.
+    /// </summary>
+    /// <param name="input"></param>
     private void MatchCharacter(char input)
     {
         if (input.EqualsIgnoreCase(this.Text[_characterIndex]))
@@ -84,8 +109,12 @@ public class ToothText : MonoBehaviour
             ResetMatching();
     }
 
+    /// <summary>
+    /// Reset the current matching.
+    /// </summary>
     private void ResetMatching()
     {
+        // Reset to first character of text.
         _characterIndex = 0;
         _textField.text = this.Text;
 
@@ -94,36 +123,61 @@ public class ToothText : MonoBehaviour
 
     private void ResetRepetitions() => _repetitions = 0;
 
+    /// <summary>
+    /// Called when the current character is matched.
+    /// </summary>
     private void OnCharacterMatched()
     {
+        // Go to next character.
+        _characterIndex++;
+
+        // Update the text to show the character has been matched.
+        UpdateText();
+
+        // Check if the entire text has been matched.
+        if (_characterIndex >= Text.Length)
+            OnRepetitionCompleted();
+    }
+
+    /// <summary>
+    /// Called when the entire text has been matched.
+    /// </summary>
+    private void OnRepetitionCompleted()
+    {
+        // Update counter.
+        _repetitions++;
+
+        // Update cleanliness.
+        _cleanliness.Cleanliness = (float)_repetitions / _requiredRepetitions;
+
+        // Make input wait for toothbrush.
         _toothInfo.OnSuccessfullyBrushed_1x.AddListener(OnBrushComplete);
         InputHandler.Instance.AddInhibitor(this);
 
-        _characterIndex++;
-
-        UpdateText();
-
-        if (_characterIndex >= Text.Length)
-            OnMatched();
-    }
-
-    private void OnBrushComplete(ToothInfo info)
-    {
-        InputHandler.Instance.RemoveInhibitor(this);
-
-        if (_repetitions < _requiredRepetitions)
-            ResetMatching();
-        else
-            OnRepetitionsCompleted();
-    }
-
-    private void OnMatched()
-    {
-        _repetitions++;
         Matched?.Invoke(this);
     }
 
-    private void OnRepetitionsCompleted()
+    /// <summary>
+    /// Called when the toothbrush is finished brushing.
+    /// </summary>
+    /// <param name="info"></param>
+    private void OnBrushComplete(ToothInfo info)
+    {
+        // Allow input again.
+        _toothInfo.OnSuccessfullyBrushed_1x.RemoveListener(OnBrushComplete);
+        InputHandler.Instance.RemoveInhibitor(this);
+
+        // Check if we should go for another repetition or if we are done.
+        if (_repetitions < _requiredRepetitions)
+            ResetMatching();
+        else
+            OnAllRepetitionsCompleted();
+    }
+
+    /// <summary>
+    /// Called when the text has been matched enough times.
+    /// </summary>
+    private void OnAllRepetitionsCompleted()
     {
         RepetitionsCompleted?.Invoke(this);
 
@@ -131,6 +185,7 @@ public class ToothText : MonoBehaviour
             enabled = false;
     }
 
+
     [Serializable]
-    public class Event : UnityEvent<ToothText> { }
+    public class Event : UnityEvent<ToothController> { }
 }

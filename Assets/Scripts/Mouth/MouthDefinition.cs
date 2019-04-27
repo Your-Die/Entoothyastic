@@ -6,12 +6,12 @@ public class MouthDefinition : ScriptableObject
 {
     [SerializeField] private List<string> _teethTexts = new List<string>();
 
-    public IEnumerable<ToothText> Apply(List<ToothText> teeth)
+    public IEnumerable<ToothController> Apply(List<ToothController> teeth)
     {
         int count = Mathf.Min(teeth.Count, _teethTexts.Count);
         for (int i = 0; i < count; i++)
         {
-            ToothText tooth = teeth[i];
+            ToothController tooth = teeth[i];
             string text = _teethTexts[i];
 
             if (string.IsNullOrEmpty(text))
@@ -19,7 +19,7 @@ public class MouthDefinition : ScriptableObject
 
             if (tooth == null)
             {
-                Debug.LogError("ToothText is null." +
+                Debug.LogError("ToothController is null." +
                                " The MouthController probably has some empty teeth entries in the teeth list." +
                                " Please remove or fill those.");
                 continue;

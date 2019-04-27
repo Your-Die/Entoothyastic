@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class MouthController : MonoBehaviour
 {
-    [SerializeField] private List<ToothText> _teeth;
+    [SerializeField] private List<ToothController> _teeth;
 
     [SerializeField] private List<MouthDefinition> _mouthDefinitions;
 
@@ -13,7 +13,7 @@ public class MouthController : MonoBehaviour
 
     private int _definitionIndex = 0;
 
-    private List<ToothText> _unmatchedTeeth;
+    private List<ToothController> _unmatchedTeeth;
 
     public UnityEvent AllDefinitionsMatched;
 
@@ -29,11 +29,11 @@ public class MouthController : MonoBehaviour
     {
         _unmatchedTeeth = definition.Apply(_teeth).ToList();
 
-        foreach (ToothText tooth in _unmatchedTeeth)
+        foreach (ToothController tooth in _unmatchedTeeth)
             tooth.RepetitionsCompleted.AddListener(OnToothMatched);
     }
 
-    private void OnToothMatched(ToothText tooth)
+    private void OnToothMatched(ToothController tooth)
     {
         tooth.RepetitionsCompleted.RemoveListener(OnToothMatched);
         _unmatchedTeeth.Remove(tooth);
