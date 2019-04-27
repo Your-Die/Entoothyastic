@@ -5,7 +5,6 @@ using UnityEngine;
 public class ToothbrushCurser : MonoBehaviour
 {
     [SerializeField] private float _clickDistance;
-    [SerializeField] private AudioSource _audioSource;
 
     [SerializeField] private AudioClip _audioClip;
     // Start is called before the first frame update
@@ -17,7 +16,7 @@ public class ToothbrushCurser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) _audioSource.PlayOneShot(_audioClip);
+        if (Input.GetMouseButtonDown(0)) AudioManager.instance.Play("Toothbrush");
         if (Input.GetMouseButton(0)) transform.position = Input.mousePosition + new Vector3(0, -_clickDistance);
         else transform.position = Input.mousePosition;
     }

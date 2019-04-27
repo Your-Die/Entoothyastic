@@ -33,7 +33,7 @@ public class SpriteToothController : MonoBehaviour
     public void IncreaseCount()
     {
         score++;
-        if (score == 5) _startButton.SetActive(true);
+//        if (score == 5) _startButton.SetActive(true);
         if (counter != null) counter.text = "Teeth cleaned " + score.ToString();
     }
     // Update is called once per frame

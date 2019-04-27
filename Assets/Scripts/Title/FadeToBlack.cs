@@ -42,6 +42,7 @@ public class FadeToBlack : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         Debug.Log("Loading scene!");
+        Cursor.visible = true;
         if (IsInAction) SceneManager.LoadScene(sceneName);
     }
     // Update is called once per frame
