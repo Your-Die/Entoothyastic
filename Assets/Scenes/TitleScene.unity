@@ -277,7 +277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clickDistance: 40
-  _audioSource: {fileID: 1170456714}
   _audioClip: {fileID: 8300000, guid: 2621794d9c3a06e40880c1b4b747b254, type: 3}
 --- !u!1 &407540580
 GameObject:
@@ -336,7 +335,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8c325f531a6c84042868dfcc8eba26a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b97bfc95d42d4e549b0c9ebf8f70189c, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1418,7 +1417,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -3558373685406419912, guid: aa401cf05f7fef5429d4e049f0a77a3c,
+  m_Sprite: {fileID: -3558373685406419912, guid: 03abcef298d9d1e478e64827909fc2a3,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
