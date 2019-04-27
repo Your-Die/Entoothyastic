@@ -56,8 +56,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_8F6661B9_Texture:
+        m_Texture: {fileID: 2800000, guid: bc9f91f1c9280fe4097789812264cddb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_6BA7879: 5
+    - Vector1_6BA7879: 23
     - Vector1_C6895969: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
