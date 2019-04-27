@@ -36,8 +36,11 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
 
     Vector3 m_TargetPosLastFrame;
 
+    Coroutine[] m_coroutines;
+
 	
     void Awake(){
+        m_coroutines = new Coroutine[3];
         RotationKeyframes_TopMouth = new List<Transform>();
         RotationKeyframes_BottomMouth = new List<Transform>();
         foreach(Transform ch in m_RotationKeyframes_TopMouth_Parent){
@@ -61,10 +64,19 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
     /// </summary>
     /// <param name="targetPos"></param>
 	public void MoveToTargetAndBrush(ToothInfo targetTooth){
+        #region ResetPrevCoroutines
+        for(int i=0; i< m_coroutines.Length; i++){
+            if(m_coroutines[i]!=null)
+                StopCoroutine(m_coroutines[i]);
+        }
+        m_ToothbrushBrushingChild.localPosition = Vector3.zero;
+        m_ToothbrushBrushingChild.localRotation = Quaternion.identity;
+        #endregion
+
         Vector3 targetPos = targetTooth.BrushTarget.position;
         //cache previous values if target is the same
         bool isTargetTheSame = false;
-        Vector3 brushingUpDir = m_ToothbrushBrushingChild.forward;//TODO: figure out depending on how hand is held
+        //Vector3 brushingUpDir = m_ToothbrushBrushingChild.right;//TODO: figure out depending on how hand is held
         
 
         if(Vector3.Distance(m_TargetPosLastFrame, targetPos) < 0.01f)
@@ -77,7 +89,7 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
             #endregion
 
             // LerpToTarget pos and rot to target
-            StartCoroutine(LerpToTarget(
+            m_coroutines[0] = StartCoroutine(LerpToTarget(
                 m_ToothbrushPositionerParent,
                 m_ToothbrushPositionerParent.position,
                 targetPos,
@@ -87,12 +99,16 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
                 m_BrushTravelRotAnimCurve,
                 0, 0, 0,
                 animationDuration, m_SpeedModifier,
-                ()=>{BrushTooth1x_Toggled(m_ToothbrushBrushingChild,brushingUpDir);}
+                ()=>{
+                    if(targetTooth.BrushAfterMoving == true)
+                        BrushTooth1x_Toggled(m_ToothbrushBrushingChild);
+                    }
             ));
         }
         else{
             // brush teeth 1x
-            BrushTooth1x_Toggled(m_ToothbrushBrushingChild, brushingUpDir);
+            if(targetTooth.BrushAfterMoving == true)
+                BrushTooth1x_Toggled(m_ToothbrushBrushingChild);
         }
 
         m_TargetPosLastFrame = targetPos;
@@ -104,11 +120,11 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
     /// </summary>
     /// <param name="brushingMoveCurve"></param>
     /// <param name="upDir"></param>
-    void BrushTooth1x_Toggled(Transform brushTr, Vector3 upDir){
-        StartCoroutine(LerpToTarget(
+    void BrushTooth1x_Toggled(Transform brushTr){
+        m_coroutines[1] = StartCoroutine(LerpToTarget(
             brushTr,
             brushTr.position,
-            brushTr.position + m_brushingMotionWidth * upDir,
+            brushTr.position + m_brushingMotionWidth * m_ToothbrushBrushingChild.forward,
             brushTr.rotation,
             brushTr.rotation,
             m_BrushTravelPosAnimCurve,
@@ -116,10 +132,10 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
             0, 0, 0,
             animationDuration, m_SpeedModifier,
             ()=>{
-                StartCoroutine(LerpToTarget(
+                m_coroutines[2] = StartCoroutine(LerpToTarget(
                     brushTr,
                     brushTr.position,
-                    brushTr.position - m_brushingMotionWidth * upDir,
+                    brushTr.position - m_brushingMotionWidth * m_ToothbrushBrushingChild.forward,
                     brushTr.rotation,
                     brushTr.rotation,
                     m_BrushTravelPosAnimCurve,
@@ -142,12 +158,12 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
         Action doAfterReachedTarget
 		){
 		
-        lerpT = lerpT + (Time.deltaTime/(duration))*speedMod;
-        if(lerpT<1.0f){
+        while(lerpT<1.0f){
             lerpVPos = moveCurve.Evaluate(lerpT);
             lerpVRot = rotCurve.Evaluate(lerpT);
             obj.position = Vector3.Lerp(startPos, targetPos, lerpVPos);
             obj.rotation = Quaternion.Lerp(startRot, targetRot, lerpVPos);
+            lerpT = lerpT + (Time.deltaTime/(duration))*speedMod;
             yield return new WaitForEndOfFrame();
         }
 
