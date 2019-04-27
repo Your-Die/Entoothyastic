@@ -10,8 +10,8 @@ public class ToothInfo : MonoBehaviour
     public float brushStrokeLengthModifier = 1;
 
     //public string lettersNeeded="";
-    [Range(0,1)]
-    public float dirtiness=0;
+    //[Range(0,1)]
+    //public float dirtiness=0;
     [SerializeField]
     float flipYAxis = 1;
 
