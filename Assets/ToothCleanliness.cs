@@ -2,23 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToothCleanliness : MonoBehaviour
-{
-    public GameObject tooth;
+public class ToothCleanliness : MonoBehaviour {
+    
 
-    [Range(0,1)]
+    [Range(0, 1)]
     public float cleanliness;
-
+    [SerializeField] float fadeOutTime = 1;
     public Material mat;
 
     private void Start() {
-        mat = tooth.GetComponent<Renderer>().material;
+        mat = gameObject.GetComponent<Renderer>().material;
+
+        mat.SetFloat("_NoiceSeed", Random.Range(3f, 50f));
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        mat.SetFloat("Vector1_C6895969", cleanliness);
-        Debug.Log(mat.GetFloat("Vector1_C6895969"));
+    public void ToothCleaned() {
+        StartCoroutine(FadeOutDirt());
+    }
+
+    
+
+    IEnumerator FadeOutDirt() {
+        // fade from opaque to transparent
+
+        // loop over 1 second backwards
+        for ( ; fadeOutTime <= 1; fadeOutTime += Time.deltaTime) {
+            cleanliness = fadeOutTime;
+            // set color with i as alpha
+            mat.SetFloat("_fadeValue", cleanliness);
+            yield return null;
+        }
     }
 }
