@@ -47,10 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ToothbrushPositionerParent: {fileID: 3540296492901575712}
   m_ToothbrushBrushingChild: {fileID: 4409361920070211448}
-  m_SpeedModifierMove: 1.5
+  m_SpeedModifierMove: 2
   m_SpeedModifierBrush: 4
   animationDuration: 1
-  m_brushingMotionWidth: 0.3
+  m_BrushStrokeLength: 0.2
   m_RotationKeyframes_TopMouth_Parent: {fileID: 4518933613746322778}
   m_RotationKeyframes_BottomMouth_Parent: {fileID: 4518933613137726242}
   RotationKeyframes_TopMouth: []
@@ -174,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 3068885870726270103, guid: 819f3facd32781c4998bcefdbb760a91,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.73
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3068885870726270103, guid: 819f3facd32781c4998bcefdbb760a91,
         type: 3}

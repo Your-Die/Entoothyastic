@@ -14,6 +14,9 @@ public class ToothInfo : MonoBehaviour
     //public string lettersNeeded="";
     [Range(0,1)]
     public float dirtiness=0;
+    [SerializeField]
+    float flipYAxis = 1;
+
     //[SerializeField]
     //HandAndBrushMover m_mover;
     SortedDictionary<float, int> m_SortedDistancesAndIndexes;
@@ -36,7 +39,7 @@ public class ToothInfo : MonoBehaviour
             }
 
         #region Distance Calculation
-        if(Vector3.Dot(transform.up, Vector3.up) > 0){
+        if(Vector3.Dot(flipYAxis * transform.up, Vector3.up) > 0){
             m_keyframeSource = HandAndBrushMover.Instance.RotationKeyframes_BottomMouth;
         }
         else{
