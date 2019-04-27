@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_ToothbrushBrushingChild: {fileID: 7450591914355144813}
   m_SpeedModifier: 1
   animationDuration: 1
-  m_brushingMotionWidth: 0.1
+  m_brushingMotionWidth: 0.2
   m_RotationKeyframes_TopMouth_Parent: {fileID: 2039403577}
   m_RotationKeyframes_BottomMouth_Parent: {fileID: 1438687809}
   RotationKeyframes_TopMouth: []
