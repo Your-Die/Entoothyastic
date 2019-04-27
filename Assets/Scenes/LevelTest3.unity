@@ -336,6 +336,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0.501, y: 1.526}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &166506140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8519776988619250218, guid: 4c09ef80813c86244bd19279fccd9969,
+    type: 3}
+  m_PrefabInstance: {fileID: 1846820852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3242b3b4a17c5c645aae6df72fb7f873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &176642337
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,12 +667,44 @@ MonoBehaviour:
   _textField: {fileID: 905023885}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1107916818}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &250592892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250592890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &362958415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -776,12 +820,44 @@ MonoBehaviour:
   _textField: {fileID: 1861289815}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 362958419}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &362958419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362958417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &407922790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,12 +1393,44 @@ MonoBehaviour:
   _textField: {fileID: 896778299}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 619802708}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &619802708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619802706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &623737074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,18 +1839,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.564, y: 1.434}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &697225459 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7852875606472435349, guid: 11d4e700c6697d5429a46535252ba634,
-    type: 3}
-  m_PrefabInstance: {fileID: 9054806645799484948}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 377a53e34a1e9db45a65ae7599f6092a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,7 +2046,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 72d8784b538bf484aaff9b76b1a2f8b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 72d8784b538bf484aaff9b76b1a2f8b9,
         type: 3}
@@ -2059,6 +2155,8 @@ MonoBehaviour:
   _mouthDefinitions:
   - {fileID: 11400000, guid: b22ccba532f65674eb28b4401d71bcb7, type: 2}
   - {fileID: 11400000, guid: d7c43207276c37643b0b0a0a524b2673, type: 2}
+  - {fileID: 11400000, guid: 96c26299f3324fd46ab0aa973bfd2604, type: 2}
+  - {fileID: 11400000, guid: 463a66892c7f09b4ab4261bb251f9f6c, type: 2}
   _disableOnFinish: 1
   AllDefinitionsMatched:
     m_PersistentCalls:
@@ -2695,12 +2793,44 @@ MonoBehaviour:
   _textField: {fileID: 1965161361}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 250592892}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1090337400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090337398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &1107916814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2816,12 +2946,44 @@ MonoBehaviour:
   _textField: {fileID: 629382085}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1107916818}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1107916818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107916816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &1392402508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2937,12 +3099,44 @@ MonoBehaviour:
   _textField: {fileID: 176642338}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1392402512}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1392402512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392402510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1591295637
 GameObject:
   m_ObjectHideFlags: 0
@@ -3262,12 +3456,44 @@ MonoBehaviour:
   _textField: {fileID: 1812905501}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1636173875}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1636173875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636173873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1812905500
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,6 +3698,80 @@ RectTransform:
   m_AnchoredPosition: {x: 0.559, y: 1.425}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1846820852
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8519776989354307203, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_Name
+      value: '[Gameplay]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989354307202, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519776989127662460, guid: 4c09ef80813c86244bd19279fccd9969,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c09ef80813c86244bd19279fccd9969, type: 3}
 --- !u!1 &1856782314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3995,12 +4295,44 @@ MonoBehaviour:
   _textField: {fileID: 1591295638}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1864913492}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1864913492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864913490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &1933486289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4116,12 +4448,44 @@ MonoBehaviour:
   _textField: {fileID: 96995503}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1933486293}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1933486293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933486291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1965161360
 GameObject:
   m_ObjectHideFlags: 0
@@ -4453,12 +4817,44 @@ MonoBehaviour:
   _textField: {fileID: 407922791}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2068237664}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &2068237664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068237662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &2083552737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4574,12 +4970,44 @@ MonoBehaviour:
   _textField: {fileID: 466438303}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2083552741}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &2083552741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083552739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &2093101906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4816,12 +5244,44 @@ MonoBehaviour:
   _textField: {fileID: 1856782315}
   Matched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166506140}
+        m_MethodName: MoveToTargetAndBrush
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2104977361}
+          m_ObjectArgumentAssemblyTypeName: ToothInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &2104977361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104977359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec43ca93950b540b253669408ac675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BrushTarget: {fileID: 0}
+  BrushAfterMoving: 1
+  brushStrokeLengthModifier: 1
+  dirtiness: 0
+  OnSuccessfullyBrushed_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1047315326468300924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1047315326468300924, guid: 11d4e700c6697d5429a46535252ba634,
@@ -4842,7 +5302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teeth:
   - {fileID: 418181964}
-  - {fileID: 697225459}
+  - {fileID: 0}
   - {fileID: 82672915}
   - {fileID: 2005595452}
   - {fileID: 978547224}
