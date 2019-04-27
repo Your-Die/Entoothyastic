@@ -72,7 +72,9 @@ public class ToothController : MonoBehaviour
     {
         ResetRepetitions();
         ResetMatching();
+        ResetDirtiness();
     }
+
 
     private void Update()
     {
@@ -122,6 +124,10 @@ public class ToothController : MonoBehaviour
     }
 
     private void ResetRepetitions() => _repetitions = 0;
+    private void ResetDirtiness()
+    {
+        _cleanliness.Reset();
+    }
 
     /// <summary>
     /// Called when the current character is matched.

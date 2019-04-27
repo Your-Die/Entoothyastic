@@ -20,6 +20,14 @@ public class ToothCleanliness : MonoBehaviour
         mat.SetFloat("_NoiceSeed", Random.Range(3f, 50f));
     }
 
+    public void Reset()
+    {
+        cleanliness = 0;
+
+        if (mat != null)
+            mat.SetFloat("_fadeValue", cleanliness);
+    }
+
     private void StartFadeTo(float value)
     {
         float difference = Mathf.Abs(cleanliness - value);
