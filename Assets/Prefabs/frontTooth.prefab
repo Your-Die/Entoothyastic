@@ -28,7 +28,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374289588337582478}
   m_LocalRotation: {x: -0.010913077, y: 0.69854856, z: -0.010761623, w: 0.7153986}
-  m_LocalPosition: {x: 0, y: 0, z: -0.17}
+  m_LocalPosition: {x: 0, y: 0, z: -0.08}
   m_LocalScale: {x: 0.8042913, y: 0.8042914, z: 0.80429107}
   m_Children: []
   m_Father: {fileID: 8235677760385989677}
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -0.033, y: 88.635, z: -1.756}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.43, y: 1.04}
+  m_AnchoredPosition: {x: -1.43, y: 0.96}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1521773972294816545
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -330,9 +330,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: 
   _matchedTextColor: {r: 1, g: 0, b: 0, a: 1}
+  _requiredRepetitions: 1
   _disableOnSuccess: 1
   _textField: {fileID: 4602658974890594618}
   Matched:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  RepetitionsCompleted:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Tooth+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -414,7 +419,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 0f324b163e3fe8549acb4d0b56f14da7, type: 3}
+  - {fileID: 2100000, guid: b59b6e4c3438cd442a0efdf7e21a3e74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
