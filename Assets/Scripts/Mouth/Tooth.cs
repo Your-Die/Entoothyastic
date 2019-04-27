@@ -21,7 +21,11 @@ public class Tooth : MonoBehaviour
     public string Text
     {
         get { return _text; }
-        set { _text = value; }
+        set
+        {
+            _text = value; 
+            ResetMatching();
+        }
     }
 
     [FormerlySerializedAs("OnInputSuccess")] public Event Matched;
@@ -63,6 +67,8 @@ public class Tooth : MonoBehaviour
     {
         _characterIndex = 0;
         _textField.text = this.Text;
+
+        this.enabled = string.IsNullOrEmpty(this.Text);
     }
 
     private void OnCharacterMatched()
