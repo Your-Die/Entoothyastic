@@ -10,11 +10,15 @@ public class Tooth : MonoBehaviour
     [SerializeField] private string _text;
     [SerializeField] private Color _matchedTextColor = Color.red;
 
+    [SerializeField] private int _requiredRepetitions = 1;
+
     [SerializeField] private bool _disableOnSuccess = true;
 
     [SerializeField] private TMP_Text _textField;
 
     private int _characterIndex;
+
+    private int _repetitions = 0;
 
     public string Text
     {
@@ -22,7 +26,7 @@ public class Tooth : MonoBehaviour
         set
         {
             _text = value; 
-            ResetMatching();
+            Reset();
         }
     }
 
@@ -31,17 +35,25 @@ public class Tooth : MonoBehaviour
         set => _textField.gameObject.SetActive(value);
     }
 
-    [FormerlySerializedAs("OnInputSuccess")] public Event Matched;
+    [FormerlySerializedAs("OnInputSuccess")]
+    public Event Matched;
+    public Event RepetitionsCompleted;
 
     private void OnEnable()
     {
         TextActive = true;
-        ResetMatching();
+        Reset();
     }
 
     private void OnDisable()
     {
         TextActive = false;
+    }
+
+    private void Reset()
+    {
+        ResetRepetitions();
+        ResetMatching();
     }
 
     private void Update()
@@ -79,6 +91,11 @@ public class Tooth : MonoBehaviour
         this.enabled = string.IsNullOrEmpty(this.Text) == false;
     }
 
+    private void ResetRepetitions()
+    {
+        _repetitions = 0;
+    }
+
     private void OnCharacterMatched()
     {
         _characterIndex++;
@@ -86,14 +103,23 @@ public class Tooth : MonoBehaviour
         UpdateText();
 
         if (_characterIndex >= Text.Length)
-        {
-            OnSuccess();
-        }
+            OnMatched();
     }
 
-    private void OnSuccess()
+    private void OnMatched()
     {
+        _repetitions++;
         Matched?.Invoke(this);
+
+        if (_repetitions < _requiredRepetitions)
+            ResetMatching();
+        else
+            OnRepetitionsCompleted();
+    }
+
+    private void OnRepetitionsCompleted()
+    {
+        RepetitionsCompleted?.Invoke(this);
 
         if (_disableOnSuccess)
             enabled = false;
