@@ -51,6 +51,8 @@ public class ToothController : MonoBehaviour
     public Event Matched;
     public Event RepetitionsCompleted;
 
+    public static event Action CharacterMatched;
+
     private void OnEnable()
     {
         // Get components.
@@ -134,6 +136,8 @@ public class ToothController : MonoBehaviour
     /// </summary>
     private void OnCharacterMatched()
     {
+        CharacterMatched?.Invoke();
+
         // Go to next character.
         _characterIndex++;
 

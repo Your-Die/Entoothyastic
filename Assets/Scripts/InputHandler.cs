@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Chinchillada.Timers;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InputHandler : MonoBehaviour
 {
@@ -12,6 +14,10 @@ public class InputHandler : MonoBehaviour
     private static InputHandler _instance;
 
     private bool IsInhibited => _inhibitors.Any();
+
+    private bool _inputUsed;
+
+    public UnityEvent InvalidInputRegistered;
 
     public static InputHandler Instance
     {
@@ -30,14 +36,28 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        ToothController.CharacterMatched += OnInputUsed;
+
+    }
+
+    private void OnInputUsed()
+    {
+        _inputUsed = true;
+    }
+
+    private void LateUpdate()
+    {
+        if(InputRegistered(out string _) && !_inputUsed)
+            InvalidInputRegistered?.Invoke();
+
+        _inputUsed = false;
+    }
+
     public bool TryGetKey(out char? key)
     {
-        var inputString = Input.inputString;
-
-        if (IsInhibited || 
-            _cooldown.IsRunning || 
-            !Input.anyKeyDown || 
-            string.IsNullOrEmpty(inputString))
+        if (!InputRegistered(out var inputString))
         {
             key = null;
             return false;
@@ -46,6 +66,12 @@ public class InputHandler : MonoBehaviour
         key = inputString.First();
         _cooldown.Start();
         return true;
+    }
+
+    private bool InputRegistered(out string inputString)
+    {
+        inputString = Input.inputString;
+        return !IsInhibited && !_cooldown.IsRunning && Input.anyKeyDown && !string.IsNullOrEmpty(inputString);
     }
 
     public void AddInhibitor(object inhibitor)
