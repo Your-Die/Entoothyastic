@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -35,6 +36,17 @@ public class GameTimer : MonoBehaviour
         sliderImage.color = start;
     }
 
+    private void OnEnable()
+    {
+        InputHandler.Instance.InvalidInputRegistered.AddListener(ApplyPenalty);
+    }
+
+    private void OnDisable()
+    {
+        InputHandler.Instance.InvalidInputRegistered.RemoveListener(ApplyPenalty);
+    }
+
+
     private void UpdateTime()
     {
         if (shouldCountDown)
@@ -47,13 +59,15 @@ public class GameTimer : MonoBehaviour
 
     private void UpdateTimerDisplay()
     {
+        // Clamp.
+        if (currentTime < 0)
+            currentTime = 0;
+
         SetTimerText(currentTime);
         UpdateSlider(currentTime);
 
-        if (currentTime <= 0)
+        if (currentTime == 0)
         {
-            currentTime = 0;
-
             timeOut.Invoke();
             shouldCountDown = false;
         }
