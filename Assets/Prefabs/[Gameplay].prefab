@@ -339,6 +339,11 @@ PrefabInstance:
       propertyPath: m_SpeedModifierMove
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4518933613915630274, guid: c3bcc155945d11b4b9dcdaf34ce1cf95,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4687286258004575579, guid: c3bcc155945d11b4b9dcdaf34ce1cf95,
         type: 3}
       propertyPath: m_LocalRotation.x
