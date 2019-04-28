@@ -48,7 +48,7 @@ public class FaceManager : MonoBehaviour
             face.gameObject.SetActive(false);
         }
 
-        currentFace = SelectNextFace();
+        NextFace();
 
     }
 
@@ -100,11 +100,11 @@ public class FaceManager : MonoBehaviour
 
     public void NextFace()
     {
-        if (!currentFace.gameObject)
+        if (currentFace)
         {
-            currentFace = SelectNextFace();
+            currentFace.gameObject.SetActive(false);
         }
-        currentFace.gameObject.SetActive(false);
+
         currentFace = SelectNextFace();
         MoveFaceToStartPos();
         currentState = States.In;
