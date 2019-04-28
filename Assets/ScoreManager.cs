@@ -74,7 +74,7 @@ public class ScoreManager : MonoBehaviour {
         for (int i = 0; i < numbOfHighscores; i++) {
             scores.Add((scoreNameList[i], scorePointList[i]));
         }
-        scores.Add((playerName, score));
+        scores.Add((playerName, ScoreSaver.Instance.scoreOverall));
         scores = scores.OrderBy(score => score.Item2).ToList();
         for (int i = 0; i < numbOfHighscores; i++) {
             scoreNameList[i] = scores[i].Item1;
