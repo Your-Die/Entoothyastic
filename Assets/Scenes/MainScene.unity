@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _failureAmount: 30
   _successAmount: 10
-  _renderer: {fileID: 0}
+  _renderer: {fileID: 497426786}
 --- !u!137 &497426786
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -1789,7 +1789,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 181b5b365040c624ea2d95d70801d7f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1813,14 +1813,14 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: -5495902117074765545, guid: c98a63706446bfc4db74fde229c24beb, type: 3}
   m_Bones: []
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_DirtyAABB: 1
+    m_Center: {x: 0.009470701, y: 0.03208831, z: 0}
+    m_Extent: {x: 1.0057408, y: 0.9105605, z: 1.078698}
+  m_DirtyAABB: 0
 --- !u!1 &521474901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,7 +5420,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _failureAmount: 30
   _successAmount: 10
-  _renderer: {fileID: 0}
+  _renderer: {fileID: 2092777528}
+--- !u!137 &2092777528 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7530834698830138654, guid: 7b7efda9a83324541b48569b507da0fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1487187253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2129441019 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 250592891, guid: 7b7efda9a83324541b48569b507da0fc,
