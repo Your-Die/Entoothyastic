@@ -143,6 +143,8 @@ public class FaceManager : MonoBehaviour
     public void EndGame()
     {
         Debug.Log("game over");
+        ScoreSaver.Instance.SetScore(GameTimer.currentTime);
+
         gameOver.Invoke();
     }
 }

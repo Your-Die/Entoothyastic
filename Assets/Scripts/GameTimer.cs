@@ -9,7 +9,7 @@ public class GameTimer : MonoBehaviour
 {
     public int timeDuration;
     public int failurePenalty = 2;
-    private int currentTime = 10000;
+    public static int currentTime = 10000;
     private float lastSecond;
     private Animator animator;
     public TextMeshProUGUI timerText;
@@ -68,6 +68,7 @@ public class GameTimer : MonoBehaviour
         if (currentTime == 0)
         {
             timeOut.Invoke();
+            
             shouldCountDown = false;
         }
     }

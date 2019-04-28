@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TextTest.unity
     guid: 5cf9129abe6a56d44b5a0d4e781dcbc9
+  - enabled: 1
+    path: Assets/Scenes/Highscore.unity
+    guid: 824d210318a32c340957b5b6b3ce4af1
   m_configObjects: {}
