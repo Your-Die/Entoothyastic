@@ -35,6 +35,17 @@ public class GameTimer : MonoBehaviour
         sliderImage.color = start;
     }
 
+    private void OnEnable()
+    {
+        InputHandler.Instance.InvalidInputRegistered.AddListener(ApplyPenalty);
+    }
+
+    private void OnDisable()
+    {
+        InputHandler.Instance.InvalidInputRegistered.RemoveListener(ApplyPenalty);
+    }
+
+
     private void UpdateTime()
     {
         if (shouldCountDown)
