@@ -9,11 +9,15 @@ public class ToothInfo : MonoBehaviour
     public bool BrushAfterMoving = true;
     public float brushStrokeLengthModifier = 1;
 
+    public bool UseRandomOffsetToTarget = false;
+    public Vector3 RandomLocalPosOffset;
+
     //public string lettersNeeded="";
     //[Range(0,1)]
     //public float dirtiness=0;
     [SerializeField]
     float flipYAxis = 1;
+    
 
     //[SerializeField]
     //HandAndBrushMover m_mover;
