@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4225057967593823157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.73, z: -2}
+  m_LocalPosition: {x: 0, y: -0.59, z: -0.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3377685200310822353}
@@ -46,6 +46,10 @@ MonoBehaviour:
   BrushTarget: {fileID: 6494451425911382878}
   BrushAfterMoving: 0
   brushStrokeLengthModifier: 0
+  brushTravelSpeedhModifier: 0.8
+  brushStrokeSpeedhModifier: 1
+  useOverrideBrushingAnimDirection: 0
+  OverrideBrushingAnimDirWS: {x: 0, y: 0, z: 1}
   UseRandomOffsetToTarget: 0
   RandomLocalPosOffset: {x: 0, y: 0, z: 0}
   flipYAxis: -1
@@ -139,13 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56e26ddb46366c49999af40e99445a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cooldown:
-    _duration: 1
-    _finished:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
   InvalidInputRegistered:
     m_PersistentCalls:
       m_Calls:
@@ -187,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7245995569696990770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.23, z: -5.87}
+  m_LocalPosition: {x: 0, y: 2.12, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6494451425911382878}
@@ -208,9 +205,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BrushTarget: {fileID: 3377685200310822353}
   BrushAfterMoving: 1
-  brushStrokeLengthModifier: 3
+  brushStrokeLengthModifier: 2.5
+  brushTravelSpeedhModifier: 0.7
+  brushStrokeSpeedhModifier: 0.4
+  useOverrideBrushingAnimDirection: 1
+  OverrideBrushingAnimDirWS: {x: 0, y: 0, z: 1}
   UseRandomOffsetToTarget: 1
-  RandomLocalPosOffset: {x: 2, y: 0.5, z: 0}
+  RandomLocalPosOffset: {x: 3, y: 1, z: 0}
   flipYAxis: -1
   OnSuccessfullyBrushed_1x:
     m_PersistentCalls:
@@ -326,6 +327,21 @@ PrefabInstance:
     - target: {fileID: 4518933613356624789, guid: c3bcc155945d11b4b9dcdaf34ce1cf95,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518933613356624788, guid: c3bcc155945d11b4b9dcdaf34ce1cf95,
+        type: 3}
+      propertyPath: m_SpeedModifierBrush
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518933613356624788, guid: c3bcc155945d11b4b9dcdaf34ce1cf95,
+        type: 3}
+      propertyPath: m_SpeedModifierMove
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518933613915630274, guid: c3bcc155945d11b4b9dcdaf34ce1cf95,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4687286258004575579, guid: c3bcc155945d11b4b9dcdaf34ce1cf95,

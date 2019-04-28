@@ -8,6 +8,11 @@ public class ToothInfo : MonoBehaviour
     public Transform BrushTarget;
     public bool BrushAfterMoving = true;
     public float brushStrokeLengthModifier = 1;
+    public float brushTravelSpeedhModifier = 1;
+    public float brushStrokeSpeedhModifier = 1;
+
+    public bool useOverrideBrushingAnimDirection;
+    public Vector3 OverrideBrushingAnimDirWS = Vector3.forward;
 
     public bool UseRandomOffsetToTarget = false;
     public Vector3 RandomLocalPosOffset;
@@ -29,6 +34,14 @@ public class ToothInfo : MonoBehaviour
     public class Event : UnityEvent<ToothInfo> { }
     [FormerlySerializedAs("OnInputSuccess")] public Event OnSuccessfullyBrushed_1x;
 
+    [System.Serializable]
+    public class Event2 : UnityEvent<ToothInfo> { }
+    [FormerlySerializedAs("OnInputSuccess")] public Event OnStartedToBrush_1x;
+
+    [System.Serializable]
+    public class Event3 : UnityEvent<ToothInfo> { }
+    [FormerlySerializedAs("OnInputSuccess")] public Event OnStartedToPokeOnBrushingFail;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +69,17 @@ public class ToothInfo : MonoBehaviour
     public void OnBrushedInstanceComplete(){
         OnSuccessfullyBrushed_1x?.Invoke(this);
     }
+
+    public void OnStartingToBrush(){
+        OnStartedToBrush_1x?.Invoke(this);
+    }
+
+    
+    public void OnStartingToPokeOnBrushingFail(){
+        OnStartedToPokeOnBrushingFail?.Invoke(this);
+    }
+
+    
 
     public Quaternion GetClosestBlendedKeyframeRotation(int numberOfClosestKeyframes = 2, bool forceRecalculate = false){
         Quaternion targetRot = Quaternion.identity;
