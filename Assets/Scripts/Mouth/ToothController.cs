@@ -52,6 +52,7 @@ public class ToothController : MonoBehaviour
     public Event RepetitionsCompleted;
 
     public static event Action CharacterMatched;
+    public static event Action ToothMatched; 
 
     private void OnEnable()
     {
@@ -169,6 +170,7 @@ public class ToothController : MonoBehaviour
         InputHandler.Instance.AddInhibitor(this);
 
         Matched?.Invoke(this);
+        ToothMatched?.Invoke();
     }
 
     /// <summary>
