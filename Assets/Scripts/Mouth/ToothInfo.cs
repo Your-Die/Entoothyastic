@@ -8,6 +8,11 @@ public class ToothInfo : MonoBehaviour
     public Transform BrushTarget;
     public bool BrushAfterMoving = true;
     public float brushStrokeLengthModifier = 1;
+    public float brushTravelSpeedhModifier = 1;
+    public float brushStrokeSpeedhModifier = 1;
+
+    public bool useOverrideBrushingAnimDirection;
+    public Vector3 OverrideBrushingAnimDirWS = Vector3.forward;
 
     public bool UseRandomOffsetToTarget = false;
     public Vector3 RandomLocalPosOffset;

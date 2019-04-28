@@ -77,13 +77,16 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
         #endregion
 
         
-        Vector3 targetPos = targetTooth.BrushTarget.position + m_BrushStrokeLength * targetTooth.brushStrokeLengthModifier * targetTooth.BrushTarget.up;
+        Vector3 targetPos = targetTooth.BrushTarget.position;
         if(targetTooth.UseRandomOffsetToTarget){
             targetPos += new Vector3(
                 UnityEngine.Random.Range(-targetTooth.RandomLocalPosOffset.x, targetTooth.RandomLocalPosOffset.x),
                 UnityEngine.Random.Range(-targetTooth.RandomLocalPosOffset.y, targetTooth.RandomLocalPosOffset.y),
                 UnityEngine.Random.Range(-targetTooth.RandomLocalPosOffset.z, targetTooth.RandomLocalPosOffset.z)
             );
+        }
+        else{
+            targetPos += m_BrushStrokeLength * targetTooth.brushStrokeLengthModifier * targetTooth.BrushTarget.up;
         }
         //cache previous values if target is the same
         bool isTargetTheSame = false;
@@ -109,7 +112,7 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
                 m_BrushTravelPosAnimCurve,
                 m_BrushTravelRotAnimCurve,
                 0, 0, 0,
-                animationDuration, m_SpeedModifierMove,
+                animationDuration, m_SpeedModifierMove * targetTooth.brushTravelSpeedhModifier,
                 ()=>{
                     //if(targetTooth.BrushAfterMoving == true)
                         BrushTooth1x_Toggled(m_ToothbrushBrushingChild, targetTooth);
@@ -133,43 +136,50 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
     /// <param name="upDir"></param>
     void BrushTooth1x_Toggled(Transform brushTr, ToothInfo targetTooth){
         float dir;
-        if(Vector3.Dot(targetTooth.BrushTarget.up, m_ToothbrushBrushingChild.forward) > 0)
-            dir = -1;
-        else
+        Vector3 brushForward = m_ToothbrushBrushingChild.forward;
+        if(targetTooth.useOverrideBrushingAnimDirection){
+            brushForward = targetTooth.OverrideBrushingAnimDirWS;
             dir = 1;
+        }
+        else{
+            if(Vector3.Dot(targetTooth.BrushTarget.up, m_ToothbrushBrushingChild.forward) > 0)
+                dir = -1;
+            else
+                dir = 1;
+        }
 
         m_coroutines[1] = StartCoroutine(LerpToTarget(
             brushTr,
             brushTr.position,
-            brushTr.position + dir * m_BrushStrokeLength * targetTooth.brushStrokeLengthModifier * m_ToothbrushBrushingChild.forward * 2,
+            brushTr.position + dir * m_BrushStrokeLength * targetTooth.brushStrokeLengthModifier * brushForward * 2,
             brushTr.rotation,
             brushTr.rotation,
             m_BrushTravelPosAnimCurve,
             m_BrushTravelRotAnimCurve,
             0, 0, 0,
-            animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush : 0,
+            animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush * targetTooth.brushStrokeSpeedhModifier : 0,
             ()=>{
                 m_coroutines[2] = StartCoroutine(LerpToTarget(
                     brushTr,
                     brushTr.position,
-                    brushTr.position - dir * m_BrushStrokeLength * targetTooth.brushStrokeLengthModifier * m_ToothbrushBrushingChild.forward * 2,
+                    brushTr.position - dir * m_BrushStrokeLength * targetTooth.brushStrokeLengthModifier * brushForward * 2,
                     brushTr.rotation,
                     brushTr.rotation,
                     m_BrushTravelPosAnimCurve,
                     m_BrushTravelRotAnimCurve,
                     0, 0, 0,
-                    animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush : 0,
+                    animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush * targetTooth.brushStrokeSpeedhModifier : 0,
                     ()=>{ 
                         // m_coroutines[3] = StartCoroutine(LerpToTarget(
                         //     brushTr,
                         //     brushTr.position,
-                        //     brushTr.position + dir * m_brushingMotionWidth * targetTooth.brushStrokeLengthModifier * m_ToothbrushBrushingChild.forward * 2,
+                        //     brushTr.position + dir * m_brushingMotionWidth * targetTooth.brushStrokeLengthModifier * brushForward * 2,
                         //     brushTr.rotation,
                         //     brushTr.rotation,
                         //     m_BrushTravelPosAnimCurve,
                         //     m_BrushTravelRotAnimCurve,
                         //     0, 0, 0,
-                        //     animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush : 0,
+                        //     animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush * targetTooth.brushStrokeSpeedhModifier : 0,
                         //     ()=>{ 
                                 targetTooth.OnBrushedInstanceComplete();
                                 //}
