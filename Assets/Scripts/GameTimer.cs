@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using TMPro;
 using UnityEngine.Events;
 
@@ -87,7 +88,7 @@ public class GameTimer : MonoBehaviour
     {
         bonusText.text = "-" + failurePenalty;
         currentTime -= failurePenalty;
-        animator.SetTrigger(penaltyTrigger);
+        animator.SetTrigger(bonusTimeTrigger);
         
         UpdateTimerDisplay();
     }

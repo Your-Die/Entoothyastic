@@ -77,6 +77,7 @@ public class ToothInfo : MonoBehaviour
 
     
     public void OnStartingToPokeOnBrushingFail(){
+        AudioManager.instance.Play("Toothbrush");
         AudioManager.instance.Play("Vocal8");
         OnStartedToPokeOnBrushingFail?.Invoke(this);
     }
