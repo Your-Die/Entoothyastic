@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FaceManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class FaceManager : MonoBehaviour
     private States currentState;
     private int teethInCurrentFace;
     private int teethCleaned = 0;
+    private int currentIndex = 0;
+    public UnityEvent gameOver;
 
     private void Awake()
     {
@@ -39,9 +42,13 @@ public class FaceManager : MonoBehaviour
         inPos = new Vector3(camPos.x - offset, camPos.y, camPos.z + distanceFromCamera);
         outPos = new Vector3(camPos.x + offset, camPos.y, camPos.z + distanceFromCamera);
         centerPos = new Vector3(camPos.x, camPos.y, camPos.z + distanceFromCamera);
-        currentFace = PickRandomFace();
-        MoveFaceToStartPos();
-        NextFace();
+
+        foreach(FaceController face in faces)
+        {
+            face.gameObject.SetActive(false);
+        }
+
+        currentFace = SelectNextFace();
 
     }
 
@@ -63,17 +70,25 @@ public class FaceManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Picks a random face from the list of faces
-    /// </summary>
-    /// <returns>Returns a face</returns>
-    private FaceController PickRandomFace()
+    private FaceController SelectNextFace()
     {
-        FaceController newFace =faces[Random.Range(0, faces.Count)];
-        teethInCurrentFace = newFace.gameObject.GetComponent<MouthController>().getNumberOfTeeth();
-        teethCleaned = 0;
-        return newFace;
+        if(currentIndex >= faces.Count)
+        {
+            Debug.Log(currentIndex);
+            Debug.Log(faces.Count);
+            EndGame();
+            return currentFace;
+        }
+        else
+        {
+            FaceController result = faces[currentIndex];
+            result.gameObject.SetActive(true);
+            currentIndex++;
+            return result;
+        }
     }
+    
+
 
     private void MoveFaceToStartPos()
     {
@@ -85,6 +100,14 @@ public class FaceManager : MonoBehaviour
 
     public void NextFace()
     {
+        if (!currentFace.gameObject)
+        {
+            currentFace = SelectNextFace();
+        }
+        currentFace.gameObject.SetActive(false);
+        currentFace = SelectNextFace();
+        MoveFaceToStartPos();
+        currentState = States.In;
         canAnimate = true;
     }    
    
@@ -108,25 +131,18 @@ public class FaceManager : MonoBehaviour
         }
     }
 
-    public void BrushedTooth()
-    {
-        teethCleaned++;
-        if(teethCleaned >= teethInCurrentFace)
-        {
-            NextFace();
-        }
-
-    }
-
     private void CheckState()
     {
         if(currentState == States.Out)
         {
-            currentFace = PickRandomFace();
-            MoveFaceToStartPos();
-            currentState = States.In;
             NextFace();
-            
         }
+    }
+
+
+    public void EndGame()
+    {
+        Debug.Log("game over");
+        gameOver.Invoke();
     }
 }
