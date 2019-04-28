@@ -3444,6 +3444,7 @@ MonoBehaviour:
   - {fileID: 2134307330}
   _mouthDefinitions:
   - {fileID: 11400000, guid: 221573a6a6e54bb4285facb132f7571c, type: 2}
+  - {fileID: 11400000, guid: d7c43207276c37643b0b0a0a524b2673, type: 2}
   _disableOnFinish: 1
   DefinitionMatched:
     m_PersistentCalls:
@@ -13329,6 +13330,7 @@ MonoBehaviour:
   - {fileID: 1128838288}
   _mouthDefinitions:
   - {fileID: 11400000, guid: dc001b9a723ab424680b2e6373cd6251, type: 2}
+  - {fileID: 11400000, guid: b22ccba532f65674eb28b4401d71bcb7, type: 2}
   _disableOnFinish: 1
   DefinitionMatched:
     m_PersistentCalls:
