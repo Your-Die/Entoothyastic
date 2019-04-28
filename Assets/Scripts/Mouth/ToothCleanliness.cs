@@ -20,7 +20,7 @@ public class ToothCleanliness : MonoBehaviour
         mat.SetFloat("_NoiceSeed", Random.Range(3f, 50f));
     }
 
-    public void Reset()
+    public void ResetAll()
     {
         cleanliness = 0;
 

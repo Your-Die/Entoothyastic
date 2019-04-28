@@ -1268,7 +1268,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 1440140467}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -1734,6 +1734,11 @@ MonoBehaviour:
   _mouthDefinitions:
   - {fileID: 11400000, guid: 221573a6a6e54bb4285facb132f7571c, type: 2}
   _disableOnFinish: 1
+  DefinitionMatched:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   AllDefinitionsMatched:
     m_PersistentCalls:
       m_Calls: []
@@ -3278,6 +3283,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &776700636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 776700637}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &776700637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776700636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &824895267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3505,7 +3540,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 521474903}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -4097,7 +4132,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 102417685}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -4256,7 +4291,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 537058113}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -4869,7 +4904,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 686690534}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -5136,7 +5171,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 5485810}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -5194,11 +5229,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Face_Chameleon
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: de872f874802a16479e7610acd347342,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3555c89c038321243a7c6b2e9190a21a, type: 2}
     - target: {fileID: -4216859302048453862, guid: de872f874802a16479e7610acd347342,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5309,6 +5339,11 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.data[1]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: de872f874802a16479e7610acd347342,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3555c89c038321243a7c6b2e9190a21a, type: 2}
     - target: {fileID: -7780734103960978560, guid: de872f874802a16479e7610acd347342,
         type: 3}
       propertyPath: m_AABB.m_Center.x
@@ -5591,7 +5626,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 1279713000}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -5750,7 +5785,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 510014010}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -6119,7 +6154,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 371285431}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -6447,11 +6482,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Face_tooth
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: b6515ca31dd377d48a34c39e55557f1f,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3555c89c038321243a7c6b2e9190a21a, type: 2}
     - target: {fileID: -4216859302048453862, guid: b6515ca31dd377d48a34c39e55557f1f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6552,6 +6582,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 181b5b365040c624ea2d95d70801d7f0, type: 2}
+    - target: {fileID: -6057140222963153312, guid: b6515ca31dd377d48a34c39e55557f1f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3555c89c038321243a7c6b2e9190a21a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6515ca31dd377d48a34c39e55557f1f, type: 3}
 --- !u!1 &1533968692 stripped
@@ -7121,7 +7156,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 1201104788}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -7464,6 +7499,11 @@ MonoBehaviour:
   _mouthDefinitions:
   - {fileID: 11400000, guid: dc001b9a723ab424680b2e6373cd6251, type: 2}
   _disableOnFinish: 1
+  DefinitionMatched:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   AllDefinitionsMatched:
     m_PersistentCalls:
       m_Calls: []
@@ -7780,7 +7820,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 476208123}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:
@@ -7951,7 +7991,7 @@ MonoBehaviour:
   _requiredRepetitions: 1
   _disableOnSuccess: 1
   _toothInfo: {fileID: 0}
-  _textField: {fileID: 0}
+  _textField: {fileID: 1640609390}
   _cleanliness: {fileID: 0}
   Matched:
     m_PersistentCalls:

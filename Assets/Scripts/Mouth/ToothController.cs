@@ -38,7 +38,7 @@ public class ToothController : MonoBehaviour
         set
         {
             _text = value;
-            Reset();
+            ResetAll();
         }
     }
 
@@ -65,12 +65,12 @@ public class ToothController : MonoBehaviour
 
         // Setup text.
         TextActive = true;
-        Reset();
+        ResetAll();
     }
 
     private void OnDisable() => TextActive = false;
 
-    private void Reset()
+    private void ResetAll()
     {
         ResetRepetitions();
         ResetMatching();
@@ -131,7 +131,7 @@ public class ToothController : MonoBehaviour
     {
         if (_cleanliness != null)
         {
-            _cleanliness.Reset();
+            _cleanliness.ResetAll();
         }
     }
 
