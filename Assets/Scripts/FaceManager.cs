@@ -49,7 +49,6 @@ public class FaceManager : MonoBehaviour
         }
 
         NextFace();
-
     }
 
     // Update is called once per frame

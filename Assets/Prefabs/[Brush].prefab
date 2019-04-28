@@ -47,10 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ToothbrushPositionerParent: {fileID: 3540296492901575712}
   m_ToothbrushBrushingChild: {fileID: 4409361920070211448}
-  m_SpeedModifierMove: 2
-  m_SpeedModifierBrush: 4
-  animationDuration: 1
-  m_BrushStrokeLength: 0.2
+  m_SpeedModifierMove: 5
+  m_SpeedModifierBrush: 12
+  animationDuration: 0.3
+  m_BrushStrokeLength: 0.3
   m_RotationKeyframes_TopMouth_Parent: {fileID: 4518933613746322778}
   m_RotationKeyframes_BottomMouth_Parent: {fileID: 4518933613137726242}
   RotationKeyframes_TopMouth: []
