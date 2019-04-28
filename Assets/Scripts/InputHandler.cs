@@ -49,8 +49,10 @@ public class InputHandler : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(InputRegistered(out string _) && !_inputUsed)
+        if(InputRegistered(out string _) && !_inputUsed){
             InvalidInputRegistered?.Invoke();
+            Debug.Log("Invalid input registered.");
+        }
 
         _inputUsed = false;
     }
