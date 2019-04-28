@@ -103,14 +103,14 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
                 0, 0, 0,
                 animationDuration, m_SpeedModifierMove,
                 ()=>{
-                    if(targetTooth.BrushAfterMoving == true)
+                    //if(targetTooth.BrushAfterMoving == true)
                         BrushTooth1x_Toggled(m_ToothbrushBrushingChild, targetTooth);
                     }
             ));
         }
         else{
             // brush teeth 1x
-            if(targetTooth.BrushAfterMoving == true)
+            //if(targetTooth.BrushAfterMoving == true)
                 BrushTooth1x_Toggled(m_ToothbrushBrushingChild, targetTooth);
         }
 
@@ -139,7 +139,7 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
             m_BrushTravelPosAnimCurve,
             m_BrushTravelRotAnimCurve,
             0, 0, 0,
-            animationDuration, m_SpeedModifierBrush,
+            animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush : 0,
             ()=>{
                 m_coroutines[2] = StartCoroutine(LerpToTarget(
                     brushTr,
@@ -150,7 +150,7 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
                     m_BrushTravelPosAnimCurve,
                     m_BrushTravelRotAnimCurve,
                     0, 0, 0,
-                    animationDuration, m_SpeedModifierBrush,
+                    animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush : 0,
                     ()=>{ 
                         // m_coroutines[3] = StartCoroutine(LerpToTarget(
                         //     brushTr,
@@ -161,7 +161,7 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
                         //     m_BrushTravelPosAnimCurve,
                         //     m_BrushTravelRotAnimCurve,
                         //     0, 0, 0,
-                        //     animationDuration, m_SpeedModifierBrush,
+                        //     animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush : 0,
                         //     ()=>{ 
                                 targetTooth.OnBrushedInstanceComplete();
                                 //}
