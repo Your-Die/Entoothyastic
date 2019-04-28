@@ -211,7 +211,7 @@ MonoBehaviour:
   useOverrideBrushingAnimDirection: 1
   OverrideBrushingAnimDirWS: {x: 0, y: 0, z: 1}
   UseRandomOffsetToTarget: 1
-  RandomLocalPosOffset: {x: 3.5, y: 1, z: 0}
+  RandomLocalPosOffset: {x: 3, y: 1, z: 0}
   flipYAxis: -1
   OnSuccessfullyBrushed_1x:
     m_PersistentCalls:
