@@ -15,16 +15,25 @@ public class MouthController : MonoBehaviour
 
     private List<ToothController> _unmatchedTeeth;
 
+    public UnityEvent DefinitionMatched;
+
     public UnityEvent AllDefinitionsMatched;
 
     private void OnEnable()
     {
+        _teeth.ForEach(t => t.enabled = true);
+
         _definitionIndex = 0;
 
         var definition = _mouthDefinitions.First();
         SetDefinition(definition);
     }
-    
+
+    private void OnDisable()
+    {
+        _teeth.ForEach(t => t.enabled = false);
+    }
+
     public int getNumberOfTeeth()
     {
         return _teeth.Count;
@@ -49,6 +58,8 @@ public class MouthController : MonoBehaviour
 
     private void OnDefinitionFinished()
     {
+        DefinitionMatched?.Invoke();
+
         _definitionIndex++;
         if (_definitionIndex < _mouthDefinitions.Count)
         {
