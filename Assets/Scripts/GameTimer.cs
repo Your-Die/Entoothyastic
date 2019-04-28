@@ -51,6 +51,7 @@ public class GameTimer : MonoBehaviour
     {
         if (shouldCountDown)
         {
+            AudioManager.instance.Play("Vocal3");
             currentTime--;
             animator.SetTrigger(secondPassedTrigger);
             UpdateTimerDisplay();
@@ -107,6 +108,7 @@ public class GameTimer : MonoBehaviour
         if (dec > 0.75f)
         {
             sliderImage.color = end;
+            AudioManager.instance.sounds.First(s => s.name == "Vocal3").pitch = 1.5f;
         }
 
         else if (dec > 0.6f)
