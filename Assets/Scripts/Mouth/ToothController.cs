@@ -126,9 +126,13 @@ public class ToothController : MonoBehaviour
     }
 
     private void ResetRepetitions() => _repetitions = 0;
+
     private void ResetDirtiness()
     {
-        _cleanliness.Reset();
+        if (_cleanliness != null)
+        {
+            _cleanliness.Reset();
+        }
     }
 
     /// <summary>
