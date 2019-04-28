@@ -105,10 +105,11 @@ public class GameTimer : MonoBehaviour
     {
         float dec = 1.0f - ((float)now / (float)timeDuration);
 
+        AudioManager.instance.sounds.First(s => s.name == "Vocal3").pitch = dec * 1.5f;
+
         if (dec > 0.75f)
         {
             sliderImage.color = end;
-            AudioManager.instance.sounds.First(s => s.name == "Vocal3").pitch = 1.5f;
         }
 
         else if (dec > 0.6f)

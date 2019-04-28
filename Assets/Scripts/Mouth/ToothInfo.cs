@@ -71,11 +71,13 @@ public class ToothInfo : MonoBehaviour
     }
 
     public void OnStartingToBrush(){
+        AudioManager.instance.Play("Toothbrush");
         OnStartedToBrush_1x?.Invoke(this);
     }
 
     
     public void OnStartingToPokeOnBrushingFail(){
+        AudioManager.instance.Play("Vocal8");
         OnStartedToPokeOnBrushingFail?.Invoke(this);
     }
 

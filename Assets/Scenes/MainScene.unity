@@ -964,6 +964,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &327426110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6648367254052619345, guid: 45b42326561f4394cb4880a1617e140b,
+    type: 3}
+  m_PrefabInstance: {fileID: 470039590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8456ce6d140cb4b408a7caa8349ff27a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &455733226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7576711648825606381, guid: 504aed98e324e1643860e48c6ccf790c,
@@ -4088,6 +4100,41 @@ PrefabInstance:
     - target: {fileID: 1392402511, guid: 7b7efda9a83324541b48569b507da0fc, type: 3}
       propertyPath: Matched.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MoveToTargetAndBrush
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783545669879638558, guid: 7b7efda9a83324541b48569b507da0fc,
+        type: 3}
+      propertyPath: OnStartedToBrush_1x.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783545669879638558, guid: 7b7efda9a83324541b48569b507da0fc,
+        type: 3}
+      propertyPath: OnStartedToBrush_1x.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783545669879638558, guid: 7b7efda9a83324541b48569b507da0fc,
+        type: 3}
+      propertyPath: OnStartedToBrush_1x.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783545669879638558, guid: 7b7efda9a83324541b48569b507da0fc,
+        type: 3}
+      propertyPath: OnStartedToBrush_1x.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 327426110}
+    - target: {fileID: 4783545669879638558, guid: 7b7efda9a83324541b48569b507da0fc,
+        type: 3}
+      propertyPath: OnStartedToBrush_1x.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783545669879638558, guid: 7b7efda9a83324541b48569b507da0fc,
+        type: 3}
+      propertyPath: OnStartedToBrush_1x.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783545669879638558, guid: 7b7efda9a83324541b48569b507da0fc,
+        type: 3}
+      propertyPath: OnStartedToBrush_1x.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Toothbrush
       objectReference: {fileID: 0}
     - target: {fileID: 724458552107254761, guid: 7b7efda9a83324541b48569b507da0fc,
         type: 3}
