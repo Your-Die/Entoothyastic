@@ -148,6 +148,10 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
                 dir = 1;
         }
 
+        if(targetTooth.BrushAfterMoving){
+            targetTooth.OnStartingToBrush();
+        }
+
         m_coroutines[1] = StartCoroutine(LerpToTarget(
             brushTr,
             brushTr.position,
@@ -159,6 +163,13 @@ public class HandAndBrushMover : MonoBehaviourSingleton<HandAndBrushMover>
             0, 0, 0,
             animationDuration, targetTooth.BrushAfterMoving? m_SpeedModifierBrush * targetTooth.brushStrokeSpeedhModifier : 0,
             ()=>{
+                if(targetTooth.BrushAfterMoving){
+                    targetTooth.OnStartingToBrush();
+                }
+                else
+                {
+                    targetTooth.OnStartingToPokeOnBrushingFail();
+                }
                 m_coroutines[2] = StartCoroutine(LerpToTarget(
                     brushTr,
                     brushTr.position,
