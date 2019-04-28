@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BrushTarget: {fileID: 6494451425911382878}
   BrushAfterMoving: 0
+  isBrushingTeeth: 0
   brushStrokeLengthModifier: 0
   brushTravelSpeedhModifier: 0.8
   brushStrokeSpeedhModifier: 1
@@ -67,6 +68,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnStartedToBrush_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnStartedToPokeOnBrushingFail:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!1 &5598888043232759292
@@ -205,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BrushTarget: {fileID: 3377685200310822353}
   BrushAfterMoving: 1
+  isBrushingTeeth: 0
   brushStrokeLengthModifier: 2.5
   brushTravelSpeedhModifier: 0.7
   brushStrokeSpeedhModifier: 0.4
@@ -227,6 +239,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnStartedToBrush_1x:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnStartedToPokeOnBrushingFail:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: ToothInfo+Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!1 &8519776989354307203

@@ -7,6 +7,7 @@ public class ToothInfo : MonoBehaviour
 {
     public Transform BrushTarget;
     public bool BrushAfterMoving = true;
+    public bool isBrushingTeeth = true;
     public float brushStrokeLengthModifier = 1;
     public float brushTravelSpeedhModifier = 1;
     public float brushStrokeSpeedhModifier = 1;
@@ -77,12 +78,17 @@ public class ToothInfo : MonoBehaviour
 
     
     public void OnStartingToPokeOnBrushingFail(){
-        AudioManager.instance.Play("Toothbrush");
-        AudioManager.instance.Play("Vocal8");
+        StartCoroutine(doActionNextFrame(()=>{AudioManager.instance.Play("Vocal8");}, 0));
+        //StartCoroutine(doActionNextFrame(()=>{AudioManager.instance.Play("Toothbrush");}, 1));
         OnStartedToPokeOnBrushingFail?.Invoke(this);
     }
 
-    
+    IEnumerator doActionNextFrame(System.Action action, int waitForFrames){
+        for(int i = 0; i< waitForFrames; i++){
+            yield return new WaitForEndOfFrame();
+        }
+        action();
+    }
 
     public Quaternion GetClosestBlendedKeyframeRotation(int numberOfClosestKeyframes = 2, bool forceRecalculate = false){
         Quaternion targetRot = Quaternion.identity;
