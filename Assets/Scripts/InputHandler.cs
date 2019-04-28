@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Chinchillada.Timers;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] private Timer _cooldown = new Timer(0);
-
     private readonly List<object> _inhibitors = new List<object>();
 
     private static InputHandler _instance;
@@ -66,14 +62,13 @@ public class InputHandler : MonoBehaviour
         }
 
         key = inputString.First();
-        _cooldown.Start();
         return true;
     }
 
     private bool InputRegistered(out string inputString)
     {
         inputString = Input.inputString;
-        return !IsInhibited && !_cooldown.IsRunning && Input.anyKeyDown && !string.IsNullOrEmpty(inputString);
+        return !IsInhibited && Input.anyKeyDown && !string.IsNullOrEmpty(inputString);
     }
 
     public void AddInhibitor(object inhibitor)

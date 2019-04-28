@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class GameTimer : MonoBehaviour
 {
     public int timeDuration;
+    public int failurePenalty = 2;
     private int currentTime = 10000;
     private float lastSecond;
     private Animator animator;
@@ -21,14 +22,17 @@ public class GameTimer : MonoBehaviour
     public UnityEvent timeOut;
     private bool shouldCountDown = true;
 
+    [Header("Animation Triggers")]
+    [SerializeField]private string secondPassedTrigger = "PassedSecond";
+    [SerializeField]private string bonusTimeTrigger = "BonusTime";
+    [SerializeField]private string penaltyTrigger = "Penalty";
 
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
         currentTime = timeDuration;
-        InvokeRepeating("UpdateTime", 1, 1);
+        InvokeRepeating(nameof(UpdateTime), 1, 1);
         sliderImage.color = start;
-        
     }
 
     private void UpdateTime()
@@ -36,28 +40,45 @@ public class GameTimer : MonoBehaviour
         if (shouldCountDown)
         {
             currentTime--;
-            animator.SetTrigger("PassedSecond");
-            SetTimerText(currentTime);
-            UpdateSlider(currentTime);
-            if (currentTime <= 0)
-            {
-                timeOut.Invoke();
-                shouldCountDown = false;
-            }
+            animator.SetTrigger(secondPassedTrigger);
+            UpdateTimerDisplay();
+        }
+    }
+
+    private void UpdateTimerDisplay()
+    {
+        SetTimerText(currentTime);
+        UpdateSlider(currentTime);
+
+        if (currentTime <= 0)
+        {
+            currentTime = 0;
+
+            timeOut.Invoke();
+            shouldCountDown = false;
         }
     }
 
     public void AddBonusTime(int time)
     {
-        bonusText.text = "+" + time.ToString();
+        bonusText.text = "+" + time;
         currentTime += time + 1;
         if(currentTime >= timeDuration)
         {
             timeDuration = currentTime;
         }
-        animator.SetTrigger("BonusTime");
+        animator.SetTrigger(bonusTimeTrigger);
     }
 
+    [ContextMenu("Penalty")]
+    public void ApplyPenalty()
+    {
+        bonusText.text = "-" + failurePenalty;
+        currentTime -= failurePenalty;
+        animator.SetTrigger(penaltyTrigger);
+        
+        UpdateTimerDisplay();
+    }
 
     private void SetTimerText(float number)
     {
