@@ -52,6 +52,9 @@ public class MouthController : MonoBehaviour
         tooth.RepetitionsCompleted.RemoveListener(OnToothMatched);
         _unmatchedTeeth.Remove(tooth);
 
+        if (!enabled)
+            return;
+        
         if (!_unmatchedTeeth.Any())
             OnDefinitionFinished();
     }
