@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -58,13 +59,15 @@ public class GameTimer : MonoBehaviour
 
     private void UpdateTimerDisplay()
     {
+        // Clamp.
+        if (currentTime < 0)
+            currentTime = 0;
+
         SetTimerText(currentTime);
         UpdateSlider(currentTime);
 
-        if (currentTime <= 0)
+        if (currentTime == 0)
         {
-            currentTime = 0;
-
             timeOut.Invoke();
             shouldCountDown = false;
         }
