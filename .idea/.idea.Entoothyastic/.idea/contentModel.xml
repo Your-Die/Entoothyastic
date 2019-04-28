@@ -22,6 +22,7 @@
             <e p="MouthDefinition.cs" t="Include" />
             <e p="Tooth.cs" t="Include" />
           </e>
+          <e p="Timer.cs" t="Include" />
           <e p="Title" t="Include">
             <e p="AnimateText.cs" t="Include" />
             <e p="AppPaused.cs" t="Include" />

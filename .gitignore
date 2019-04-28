@@ -6,7 +6,8 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
-
+Assets/Ultimate Game Music Collection
+Assets/Universal Sound FX
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 
@@ -54,3 +55,4 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+Assets/Universal Sound FX\.meta
