@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using TMPro;
 using UnityEngine.Events;
 
@@ -48,6 +49,7 @@ public class GameTimer : MonoBehaviour
     {
         if (shouldCountDown)
         {
+            AudioManager.instance.Play("Vocal3");
             currentTime--;
             animator.SetTrigger(secondPassedTrigger);
             UpdateTimerDisplay();
@@ -86,7 +88,7 @@ public class GameTimer : MonoBehaviour
     {
         bonusText.text = "-" + failurePenalty;
         currentTime -= failurePenalty;
-        animator.SetTrigger(penaltyTrigger);
+        animator.SetTrigger(bonusTimeTrigger);
         
         UpdateTimerDisplay();
     }
@@ -100,6 +102,8 @@ public class GameTimer : MonoBehaviour
     private void UpdateSlider(int now)
     {
         float dec = 1.0f - ((float)now / (float)timeDuration);
+
+        AudioManager.instance.sounds.First(s => s.name == "Vocal3").pitch = dec * 1.5f;
 
         if (dec > 0.75f)
         {

@@ -101,6 +101,7 @@ public class FaceManager : MonoBehaviour
     {
         if (currentFace)
         {
+            AudioManager.instance.Play("Relief3");
             currentFace.gameObject.SetActive(false);
         }
 
