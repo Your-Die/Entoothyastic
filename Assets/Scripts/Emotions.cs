@@ -10,6 +10,8 @@ public class Emotions : MonoBehaviour
 
     [SerializeField] private SkinnedMeshRenderer _renderer;
 
+    private int[] _indices = {0, 1};
+
     private void Awake()
     {
         _renderer = GetComponentInChildren<SkinnedMeshRenderer>();
@@ -19,6 +21,8 @@ public class Emotions : MonoBehaviour
     {
         ToothController.ToothMatched += OnToothMatched;
         InputHandler.Instance.InvalidInputRegistered.AddListener(OnFailure);
+
+        ResetWeights();
     }
 
 
@@ -26,6 +30,15 @@ public class Emotions : MonoBehaviour
     {
         ToothController.ToothMatched -= OnToothMatched;
         InputHandler.Instance.InvalidInputRegistered.RemoveListener(OnFailure);
+    }
+
+    private void ResetWeights()
+    {
+        if (_renderer == null)
+            return;
+
+        foreach (int index in _indices)
+            _renderer.SetBlendShapeWeight(index, 0);
     }
 
     private void OnToothMatched()
@@ -60,8 +73,7 @@ public class Emotions : MonoBehaviour
 
     private IEnumerable<(int index, float weight)> GetValidBlendShapes(Func<float, bool> predicate)
     {
-        int[] indices = {0, 1};
-        return indices.Select(index => (index, _renderer.GetBlendShapeWeight(index)))
+        return _indices.Select(index => (index, _renderer.GetBlendShapeWeight(index)))
             .Where(tuple => predicate(tuple.Item2));
     }
 }
