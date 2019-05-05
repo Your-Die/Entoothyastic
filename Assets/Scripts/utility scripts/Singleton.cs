@@ -15,6 +15,8 @@ public class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
     private static T _instance = null;
     private static bool applicationIsQuitting = false;
 
+    //protected MonoBehaviourSingleton(){}
+
     //private static object _lock = new object();
 
     public  void InitSingleton()

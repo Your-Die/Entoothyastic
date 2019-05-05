@@ -6,29 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Basicgraphics - Mikkel.unity
+    path: Assets/Scenes/OTHER SCENES/Basicgraphics - Mikkel.unity
     guid: bf22b48d4d3e1f74b8742d6d723f5445
   - enabled: 0
-    path: Assets/Scenes/Basicgraphics - Niko.unity
+    path: Assets/Scenes/OTHER SCENES/Basicgraphics - Niko.unity
     guid: f6ada369a17677740bdbb38fec3fe4c5
   - enabled: 0
-    path: Assets/Scenes/FaceText.unity
+    path: Assets/Scenes/OTHER SCENES/FaceText.unity
     guid: 09786083139df3c498018a845c0a3402
   - enabled: 0
-    path: Assets/Scenes/LevelTest.unity
+    path: Assets/Scenes/OTHER SCENES/LevelTest.unity
     guid: 7170621e3628b054983485d024d84339
   - enabled: 0
-    path: Assets/Scenes/LevelTest2.unity
+    path: Assets/Scenes/OTHER SCENES/LevelTest2.unity
     guid: b4683d84483f4bb4ebeb668a11f68cf0
   - enabled: 0
-    path: Assets/Scenes/LevelTest2_Ida.unity
+    path: Assets/Scenes/OTHER SCENES/LevelTest2_Ida.unity
     guid: dd3bbb072985ef74485fd9da829ee7be
   - enabled: 0
-    path: Assets/Scenes/LevelTest2_tudor.unity
+    path: Assets/Scenes/OTHER SCENES/LevelTest2_tudor.unity
     guid: 703f7df256c90b94b9df03a3e79b2c31
   - enabled: 0
-    path: Assets/Scenes/LevelTest3.unity
+    path: Assets/Scenes/OTHER SCENES/LevelTest3.unity
     guid: 2786a905a51bf6b49962df951844810f
+  - enabled: 1
+    path: Assets/Scenes/GameManager-InitialScene.unity
+    guid: 8dfaa2adeaf6ef34384aa9992cc49ece
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: 18172bbdd9b81f54e96a5250033796c3
@@ -36,13 +39,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: f4c6d05298f18e74da4cb635070b0c09
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/OTHER SCENES/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/ShaderTest.unity
+    path: Assets/Scenes/OTHER SCENES/ShaderTest.unity
     guid: d46abf302ee3ccf4d8ca7d025a945d22
   - enabled: 0
-    path: Assets/Scenes/TextTest.unity
+    path: Assets/Scenes/OTHER SCENES/TextTest.unity
     guid: 5cf9129abe6a56d44b5a0d4e781dcbc9
   - enabled: 1
     path: Assets/Scenes/Highscore.unity

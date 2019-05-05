@@ -5,8 +5,8 @@ using UnityEngine;
 using TMPro;
 
 public class ScoreManager : MonoBehaviour {
-    [SerializeField] private TMP_Text _scoreText;
-    float score = 0f;
+    //[SerializeField] private TMP_Text _scoreText;
+    //float score = 0f;
     string playerName;
     const int numbOfHighscores = 5;
 
@@ -22,11 +22,11 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField] TMP_Text[] scoreNameGUI;
     [SerializeField] TMP_Text[] scorePointGUI;
 
-    public void AddToScore(int scoreIncrease) {
+    // public void AddToScore(int scoreIncrease) {
 
-        score += scoreIncrease;
-        _scoreText.text = score.ToString();
-    }
+    //     score += scoreIncrease;
+    //     _scoreText.text = score.ToString();
+    // }
 
 
     public void UpdateGUIList() {
@@ -46,25 +46,28 @@ public class ScoreManager : MonoBehaviour {
         Debug.Log(temp);
         return temp;
     }
-    void ZeroOutScores() {
+    public void ZeroOutScores() {
         for (int i = 0; i < numbOfHighscores; i++) {
             scoreNameList[i] = "BillyBob";
             scorePointList[i] = 0f;
         }
 
         SaveHighscore();
+        UpdateGUIList();
     }
     void ScoreDataDecoder(string data) {
-       if (data == "") {
+        if (data == "") {
             ZeroOutScores();
             return;
-       }
+        }
+        Debug.Log("Loading scores: "+data);
+
         string[] tempUsers = data.Split(listSeperator);
         for (int i = 0; i < numbOfHighscores; i++) {
             string[] tempIndividual = tempUsers[i].Split(userSeperator);
-                scoreNameList[i] = tempIndividual[0];
-                float.TryParse(tempIndividual[1], out scorePointList[i]);
-            
+            scoreNameList[i] = tempIndividual[0];
+            float.TryParse(tempIndividual[1], out scorePointList[i]);
+            Debug.Log("Parsed score: "+scoreNameList[i]+"; "+scorePointList[i]);
         }
     }
 
@@ -74,8 +77,10 @@ public class ScoreManager : MonoBehaviour {
         for (int i = 0; i < numbOfHighscores; i++) {
             scores.Add((scoreNameList[i], scorePointList[i]));
         }
-        scores.Add((playerName, ScoreSaver.Instance.scoreOverall));
+        scores.Add((playerName, GameManager.Instance.scoreOverall));
+        Debug.Log("Player score: "+playerName+"; "+ GameManager.Instance.scoreOverall);
         scores = scores.OrderBy(score => score.Item2).ToList();
+        scores.Reverse();
         for (int i = 0; i < numbOfHighscores; i++) {
             scoreNameList[i] = scores[i].Item1;
             scorePointList[i] = scores[i].Item2;
@@ -94,10 +99,13 @@ public class ScoreManager : MonoBehaviour {
     void Start()
     {
         ScoreDataDecoder(PlayerPrefs.GetString("score"));
-        
+        SaveNewHighscore(GameManager.Instance.playerName);
+        UpdateGUIList();
+
     }
     private void Update() {
-        UpdateGUIList();
+        //UpdateGUIList();
+        
     }
 
 }

@@ -41,7 +41,10 @@ public class GameTimer : MonoBehaviour
 
     private void OnDisable()
     {
-        InputHandler.Instance.InvalidInputRegistered.RemoveListener(ApplyPenalty);
+        if(InputHandler.Instance.InvalidInputRegistered!=null)
+            InputHandler.Instance.InvalidInputRegistered.RemoveListener(ApplyPenalty);
+        else
+            Debug.Log("WARNING: InputHandler.Instance.InvalidInputRegistered was null.");
     }
 
 
